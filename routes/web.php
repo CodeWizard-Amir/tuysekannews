@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BanerController;
 use App\Http\Controllers\CelebritiesController;
+use App\Http\Controllers\GalaryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewHandelerController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,8 @@ Route::get("/", [ViewHandelerController::class, "Home"])->name("websitepages.hom
 Route::get('/adminpanel', function () {
     return view('adminpanel.layout.MainAdminPanelLayout');
 });
+Route::get('/addGalary',[GalaryController::class, "show"])->name("show.galary");
+Route::post('/saveGalary',[GalaryController::class, "create"])->name("create.galary");
 // --------------------------------------------------
 Route::get("/addAdmin" , [UserController::class, "show"])->name("show.users");
 Route::post("/saveAdmin" , [UserController::class, "create"])->name("create.user");

@@ -41,7 +41,7 @@
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
                         href="">اضافه کردن خبر</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
-                        href="">اضافه کردن تصاویر</a></li>
+                        href="{{route('show.galary')}}">اضافه کردن تصاویر</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
                         href="">صفحه درباره ما</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"

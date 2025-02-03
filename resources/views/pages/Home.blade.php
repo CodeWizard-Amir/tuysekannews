@@ -49,11 +49,11 @@
             <div class="w-full h-[350px] my-5 xl:my-0 xl:h-[480px] rounded-md">
                 <div class="swiper w-full h-full Galary">
                     <div class="swiper-wrapper w-full h-full">
-                        @for ($i = 0; $i < 8; $i++)
+                        @foreach ($galary as $item)
                         <div class="swiper-slide w-full bg-green-500 h-full flex justify-center items-center">
-                            <img class="w-full h-full rounded-md" src="{{url("/")}}/assets/img/2.jpeg" alt="">
+                            <img class="w-full h-full rounded-md" src="{{url("/")}}/{{$item->picture}}" alt="">
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -62,10 +62,10 @@
             </div>
             <div class="flex justify-between items-center">
                 <div class="w-[48%] bg-red-500 my-5 h-[150px] xl:h-[250px] rounded-md">
-                    <img class="w-full h-full rounded-md" src="{{url('/')}}/assets/img/3.jpeg" alt="">
+                    <img class="w-full h-full rounded-md" src="{{url('/')}}/{{$firstpicure->picture}}" alt="{{$firstpicure->name}}">
                 </div>
                 <div class="w-[48%] my-5 h-[150px] xl:h-[250px] rounded-md">
-                    <img class="w-full h-full rounded-md" src="{{url('/')}}/assets/img/1.jpeg" alt="">
+                    <img class="w-full h-full rounded-md" src="{{url('/')}}/{{$secondpicture->picture}}" alt="{{$secondpicture->name}}">
                 </div>
             </div>
         </div>
