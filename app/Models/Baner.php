@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Baner extends Model
 {
     use HasFactory;
-    protected $fillabe = [
+    protected $fillable = [
         'name',
+        'link',
         'picture',
     ];
 }

@@ -26,6 +26,7 @@ Route::get("/addAdmin" , [UserController::class, "show"])->name("show.users");
 Route::post("/saveAdmin" , [UserController::class, "create"])->name("create.user");
 // ---------------------------------------------------
 Route::get("/addBaner" , [BanerController::class, "show"])->name("show.baner");
+Route::post("/saveBaner" , [BanerController::class, "create"])->name("create.baner");
 
 
 Route::get("/addCelebrity" , [CelebritiesController::class, "show"])->name("show.celebritise");

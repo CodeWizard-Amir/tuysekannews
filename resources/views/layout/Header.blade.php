@@ -41,14 +41,19 @@
         {{-- -------------------------- --}}
         <div class="swiper baner w-full h-full">
             <div class="swiper-wrapper w-full h-full">
-                @for ($i = 0; $i < 5; $i++)
+                @foreach ($baners as $baner)
+                @if ($baner->link != "nothing")
+                <a href="{{$baner->link}}" class="swiper-slide w-full h-full">
+                    <img alt="{{$baner->name}}" class="w-full h-full" src="{{$baner->picture}}" />
+                </a>
+                @else
                 <div class="swiper-slide w-full h-full">
-                    <img class="w-full h-full" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    <img alt="{{$baner->name}}" class="w-full h-full" src="{{$baner->picture}}" />
                 </div>
-                <div class="swiper-slide w-full h-full">
-                    <img class="w-full h-full" src="{{url("/")}}/assets/img/3.jpeg" />
-                </div>
-                @endfor
+                @endif
+
+                @endforeach
+
             </div>
 
         </div>
