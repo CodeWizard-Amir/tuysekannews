@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Antiquities;
 use App\Models\Baner;
 use App\Models\Celebrities;
 use App\Models\Galary;
@@ -14,8 +15,9 @@ class ViewHandelerController extends Controller
         $celebritise = Celebrities::get();
         $baners = Baner::get();
         $firstpicure = Galary::inRandomOrder()->first();
-        $secondpicture = Galary::whereNotIn("id",[$firstpicure->id])->inRandomOrder()->first();
-        $galary = Galary::whereNotIn("id",[$secondpicture->id])->get();
-        return view("pages.home", compact("celebritise", "baners", "galary", "firstpicure", "secondpicture"));
+        $works = Antiquities::get();
+        $secondpicture = Galary::whereNotIn("id", [$firstpicure->id])->inRandomOrder()->first();
+        $galary = Galary::whereNotIn("id", [$secondpicture->id])->get();
+        return view("pages.home", compact("celebritise", "baners", "works", "galary", "firstpicure", "secondpicture"));
     }
 }

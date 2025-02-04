@@ -17,6 +17,8 @@
                     placeholder="نام و نام خانوادگی فرد ">
                 <input name="job" class="w-[48%] shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
                     placeholder="عنوان شغلی یا اجتماعی(مثلا نویسنده)">
+                    <textarea class="w-full mt-10 shadow-sm rounded-sm px-5 py-3 h-96 border border-gray-200" name="description"
+                    id="editor" placeholder="درباره شخصیت"></textarea>
                 <br>
                 <br>
                 <span class="mx-1">تصویر شخصیت برجسته</span>
@@ -43,8 +45,7 @@
 
                 </label>
                 <input class="hidden file-input" type="file" name="picture" id="picture">
-                <textarea class="w-full mt-10 shadow-sm rounded-sm px-5 py-3 h-96 border border-gray-200" name="description"
-                    id="editor" placeholder="درباره شخصیت"></textarea>
+
                 <button class="mx-1 bg-sky-600 text-white px-3 py-1 rounded-md">ذخیره</button>
             </form>
         </div>

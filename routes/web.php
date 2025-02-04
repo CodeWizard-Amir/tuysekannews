@@ -24,6 +24,7 @@ Route::get('/adminpanel', function () {
     return view('adminpanel.layout.MainAdminPanelLayout');
 });
 Route::get('/addWorks',[AntiquitiesController::class, "show"])->name("show.works");
+Route::post('/saveWorks',[AntiquitiesController::class, "create"])->name("create.antiquitise");
 
 
 Route::get('/addGalary',[GalaryController::class, "show"])->name("show.galary");
