@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AntiquitiesController;
 use App\Http\Controllers\BanerController;
 use App\Http\Controllers\CelebritiesController;
 use App\Http\Controllers\GalaryController;
@@ -22,6 +23,9 @@ Route::get("/", [ViewHandelerController::class, "Home"])->name("websitepages.hom
 Route::get('/adminpanel', function () {
     return view('adminpanel.layout.MainAdminPanelLayout');
 });
+Route::get('/addWorks',[AntiquitiesController::class, "show"])->name("show.works");
+
+
 Route::get('/addGalary',[GalaryController::class, "show"])->name("show.galary");
 Route::post('/saveGalary',[GalaryController::class, "create"])->name("create.galary");
 // --------------------------------------------------
@@ -33,4 +37,4 @@ Route::post("/saveBaner" , [BanerController::class, "create"])->name("create.ban
 
 
 Route::get("/addCelebrity" , [CelebritiesController::class, "show"])->name("show.celebritise");
-Route::post("/saveCelebrity" , [CelebritiesController::class, "create"])->name(name: "create.celebrity");
+Route::post("/saveCelebrity" , [CelebritiesController::class, "create"])->name( "create.celebrity");

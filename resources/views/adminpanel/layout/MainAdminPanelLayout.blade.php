@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">  
+
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/globalStyles.css">
     @yield('head')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -37,7 +39,7 @@
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
                         href="{{route("show.celebritise")}}">اضافه کردن مشاهیر</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
-                        href="">اضافه کردن آثار</a></li>
+                        href="{{route('show.works')}}">اضافه کردن آثار</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
                         href="">اضافه کردن خبر</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
@@ -53,6 +55,7 @@
         </div>
     </main>
     <script src="{{url("/")}}/assets/js/jQuery.js"></script>
+    <script src="{{url('/')}}/assets/js/sweetalert.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>  
     @yield('scripts')
 </body>
