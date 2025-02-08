@@ -30,7 +30,16 @@ class GalaryController extends Controller
             $galaryPicture->create($data);
         }
         return back();
+    }
 
-
+    public function delete($id)
+    {
+        $galary = Galary::find($id);
+        if(file_exists($galary->picture))
+        {
+            @unlink($galary->picture);
+        }
+        $galary->delete();
+        return back();
     }
 }

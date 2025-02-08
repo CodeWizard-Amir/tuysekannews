@@ -69,26 +69,30 @@
         <div class="my-5 w-full border-t-2 border-green-500 bg-white p-10">
             <table class="w-full border-2 border-gray-300">
                 <thead class="border-2 p-4 border-gray-300">
+                    <th class="border-2 p-4 border-gray-300">تصویر</th>
                     <th class="border-2 p-4 border-gray-300">نام اثر</th>
                     <th class="border-2 p-4 border-gray-300">دسته بندی اثر </th>
-                    <th class="border-2 p-4 border-gray-300">تصویر</th>
                     <th class="border-2 p-4 border-gray-300">توضیحات اثر</th>
                     <th class="border-2 p-4 border-gray-300">عملیات</th>
                 </thead>
                 <tbody>
                     @foreach ($works as $work)
                         <tr class="odd:bg-gray-100">
+                            <td class="border-2 text-center p-2 border-gray-300"><img class="w-14 h-14 rounded-full !mx-auto"
+                                src="{{ url('/') }}/{{ $work->picture }}" alt=""></td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ $work->name }}</td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ $work->categoryID }}</td>
-                            <td class="border-2 text-center p-2 border-gray-300"><img class="w-14 h-14 !mx-auto"
-                                    src="{{ url('/') }}/{{ $work->picture }}" alt=""></td>
                             <td class="border-2 text-center p-2 border-gray-300">{!! mb_substr($work->description, 0, 180) !!}...</td>
-                            <td class="border text-center flex justify-center items-center p-2 border-gray-300">
-                                <a class="p-3 mx-1 flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500"
-                                    href="">
+                            <td class=" text-center flex justify-center items-center p-4 !h-full">
+                                <form class="hidden deleteBanerForm" method="Post"
+                                    action="{{ route('delete.antiquitise', ['id' => $work->id]) }}">
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
+                                <button
+                                    class="p-3 mx-1 deleteFormBtn flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500">
                                     <i class="fa fa-trash"></i>
-
-                                </a>
+                                </button>
                                 <a class="p-3 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
                                     href=""> <i class="fa fa-edit"></i>
                                 </a>
@@ -103,6 +107,25 @@
 @endsection
 
 @section('scripts')
+<script>
+    $(".deleteFormBtn").click(function() {
+        let DElFrom = $(this).siblings(".deleteBanerForm");
+        Swal.fire({
+            title: "آیا از حذف اطمینان دارید؟",
+            text: "این عمل قابل بازگشت نخواهد بود",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "لغو",
+            confirmButtonText: "بله ، حذفش کن"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                DElFrom.submit();
+            }
+        });
+    })
+</script>
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'), {

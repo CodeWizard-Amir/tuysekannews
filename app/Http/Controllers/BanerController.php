@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Baner;
 use Illuminate\Http\Request;
-
+use Illuminate\Http\File;
 class BanerController extends Controller
 {
     public function show()
@@ -24,6 +24,17 @@ class BanerController extends Controller
         }
         $data["link"] = $request->link ? $request->link : "nothing";
         $baner->create($data);
+        return back();
+    }
+    public function delete($id)
+    {
+        $baner = Baner::find($id);
+        $img = $baner->picture;
+        if(file_exists($img))
+        {
+            @unlink($img);
+        }
+        $baner->delete();
         return back();
     }
 }

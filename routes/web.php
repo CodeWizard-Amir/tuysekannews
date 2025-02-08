@@ -26,20 +26,25 @@ Route::get('/adminpanel', function () {
 });
 Route::get('/addNews', [NewsController::class, "show"])->name("show.news");
 Route::post('/saveNews', [NewsController::class, "create"])->name("create.news");
+Route::delete('/deletenews/{id}', [NewsController::class, "delete"])->name("delete.news");
 
 Route::get('/addWorks',[AntiquitiesController::class, "show"])->name("show.works");
 Route::post('/saveWorks',[AntiquitiesController::class, "create"])->name("create.antiquitise");
+Route::delete('/deleteWorks/{id}',[AntiquitiesController::class, "delete"])->name("delete.antiquitise");
 
 
 Route::get('/addGalary',[GalaryController::class, "show"])->name("show.galary");
 Route::post('/saveGalary',[GalaryController::class, "create"])->name("create.galary");
+Route::delete('/deleteGalary/{id}',[GalaryController::class, "delete"])->name("delete.galary");
 // --------------------------------------------------
 Route::get("/addAdmin" , [UserController::class, "show"])->name("show.users");
 Route::post("/saveAdmin" , [UserController::class, "create"])->name("create.user");
 // ---------------------------------------------------
 Route::get("/addBaner" , [BanerController::class, "show"])->name("show.baner");
 Route::post("/saveBaner" , [BanerController::class, "create"])->name("create.baner");
+Route::delete("/deleteBaner/{id}" , [BanerController::class, "delete"])->name("delete.baner");
 
 
 Route::get("/addCelebrity" , [CelebritiesController::class, "show"])->name("show.celebritise");
 Route::post("/saveCelebrity" , [CelebritiesController::class, "create"])->name( "create.celebrity");
+Route::delete("/deleteCelebrity/{id}" , [CelebritiesController::class, "delete"])->name( "delete.celebrity");

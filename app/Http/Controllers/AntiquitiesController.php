@@ -37,4 +37,15 @@ class AntiquitiesController extends Controller
         $works->create($data);
         return back();
     }
+
+    public function delete($id)
+    {
+        $work = Antiquities::find($id);
+        if(file_exists($work->picture))
+        {
+            @unlink($work->picture);
+        }
+        $work->delete();
+        return back();
+    }
 }

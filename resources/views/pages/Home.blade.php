@@ -6,11 +6,12 @@
         <h2 class="text-xl my-5 font-bold">آثار تویسرکانی ها</h2>
         <div class="flex flex-wrap justify-between w-full items-center">
             @foreach ($works as $work)
-                <div class="2xl:w-[30%] relative overflow-hidden md:w-[45%] lg:w-[40%] w-full p-2 rounded-md m-5 h-96 shadow-md border">
-                    <img class="w-full rounded-md h-2/3" src="{{url('/')}}/{{$work->picture}}" />
+                <div
+                    class="2xl:w-[30%] relative overflow-hidden md:w-[45%] lg:w-[40%] w-full p-2 rounded-md m-5 h-96 shadow-md border">
+                    <img class="w-full rounded-md h-2/3" src="{{ url('/') }}/{{ $work->picture }}" />
                     <div class="flex justify-between items-center p-4">
-                        <h2>{{$work->name}}</h2>
-                        <strong class="text-xs text-600">{{$work->categoryID}}</strong>
+                        <h2>{{ $work->name }}</h2>
+                        <strong class="text-xs text-600">{{ $work->categoryID }}</strong>
                     </div>
                     <div class="p-2 text-sm leading-7 text-gray-700">
                         {!! $work->description !!}
@@ -79,10 +80,13 @@
             <div class="w-full my-5 xl:my-0 2xl:w-[30%] xl:w-[40%] shadow-sm rounded-md border border-gray-100">
                 <h2 class="w-full bg-gray-50 px-5 py-4 rounded-t-md border-b-2 border-gray-200 ">اخرین اخبار</h2>
                 <ul class="p-5">
-                    @for ($i = 0; $i < 8; $i++)
+                    @foreach ($news as $item)
                         <li class="my-5 flex justify-between items-center bg-gray-50 px-4 border-r-2 border-gray-200 py-5">
                             <a class="text-sm hover:text-purple-900" href="#">
-                                اجتماع بزرگ تویسرکانی ها در میدان آزادی
+                                {{ mb_substr($item->title,0,length: 40) }}
+                                @if (strlen($item->title) > 41)
+                                    {{ "..." }}
+                                @endif
                             </a>
                             <div class="flex justify-between text-[8px] items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -94,10 +98,11 @@
                                         clip-rule="evenodd" />
                                 </svg>
 
-                                <span class="mx-1">یکسال قبل</span>
+                                <span class="mx-1">{{ $item->created_at }}</span>
                             </div>
                         </li>
-                    @endfor
+                    @endforeach
+
                 </ul>
             </div>
         </div>

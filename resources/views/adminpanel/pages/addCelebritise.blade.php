@@ -52,27 +52,32 @@
         <div class="my-5 w-full border-t-2 border-green-500 bg-white p-10">
             <table class="w-full border-collapse border-2 border-gray-300">
                 <thead class="border-2 p-4 border-gray-300">
+                    <th class="border-2 p-4 border-gray-300">تصویر شخصیت</th>
                     <th class="border-2 p-4 border-gray-300">نام و نام خانوادگی</th>
                     <th class="border-2 p-4 border-gray-300">عنوان شغلی یا اجتماعی</th>
-                    <th class="border-2 p-4 border-gray-300">تصویر شخصیت</th>
                     <th class="border-2 p-4 border-gray-300">درباره شخصیت</th>
                     <th class="border-2 p-4 border-gray-300">عملیات</th>
                 </thead>
                 <tbody>
                     @foreach ($celebrities as $celebrity)
                         <tr class="odd:bg-gray-100">
+                            <td class="border-2 text-center p-2 border-gray-300">
+                                <img class="w-14 h-14 !mx-auto rounded-full" src="{{ $celebrity->picture }}" alt="">
+                            </td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ $celebrity->name }}</td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ $celebrity->job }}</td>
-                            <td class="border-2 text-center p-2 border-gray-300">
-                                <img class="w-14 h-14 rounded-full" src="{{ $celebrity->picture }}" alt="">
-                            </td>
-                            <td class="border-2 text-center p-2 border-gray-300">{{ $celebrity->description }}</td>
-                            <td class=" text-center flex justify-center items-center p-2">
-                                <a class="p-3 mx-1 flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500"
-                                    href="">
+          
+                            <td class="border-2 text-center p-2 border-gray-300">{!! mb_substr($celebrity->description,0,50) !!}</td>
+                            <td class=" text-center flex justify-center items-center p-5">
+                                <form class="hidden deleteBanerForm" method="Post"
+                                    action="{{ route('delete.celebrity', ['id' => $celebrity->id]) }}">
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
+                                <button
+                                    class="p-3 mx-1 deleteFormBtn flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500">
                                     <i class="fa fa-trash"></i>
-
-                                </a>
+                                </button>
                                 <a class="p-3 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
                                     href=""> <i class="fa fa-edit"></i>
                                 </a>
@@ -123,4 +128,23 @@
     });
     });
     </script>
+        <script>
+            $(".deleteFormBtn").click(function() {
+                let DElFrom = $(this).siblings(".deleteBanerForm");
+                Swal.fire({
+                    title: "آیا از حذف اطمینان دارید؟",
+                    text: "این عمل قابل بازگشت نخواهد بود",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    cancelButtonText: "لغو",
+                    confirmButtonText: "بله ، حذفش کن"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        DElFrom.submit();
+                    }
+                });
+            })
+        </script>
 @endsection

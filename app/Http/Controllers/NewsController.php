@@ -7,11 +7,15 @@ use App\Models\newsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use function PHPUnit\Framework\fileExists;
+
 class NewsController extends Controller
 {
     public function show()
     {
-        return view("adminpanel.pages.addNews");
+        $newses = News::get();
+        $newsCategory = newsCategory::get();
+        return view("adminpanel.pages.addNews",compact("newses","newsCategory"));
     }
     public function create(Request $request)
     {
@@ -34,6 +38,17 @@ class NewsController extends Controller
             $data['newsCategoryID'] = $catId;
         }
         $news->create($data);
+        return back();
+    }
+
+    public function delete($id)
+    {
+        $news = News::find($id);
+        if(file_exists($news->picture))
+        {
+            @unlink($news->picture);
+        }
+        $news->delete();
         return back();
     }
 }
