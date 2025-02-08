@@ -10,24 +10,27 @@
     <section class="p-5">
         <h2 class="rounded-full border-r-2 px-5 py-3 !border-indigo-500">اضافه کردن آثار</h2>
         <div class="my-5 w-full border-t-2 border-red-500 bg-white p-10">
-            <form class="w-full space-y-5 px-10" action="{{ route('create.antiquitise') }}" method="POST" enctype="multipart/form-data">
+            <form class="w-full space-y-5 px-10" action="{{ route('create.antiquitise') }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 <input name="name" class="w-[65%] shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
                     placeholder="نام اثر">
-                <select name="categoryID" id=""
+                <select name="categoryID" id="categoryIDSelect"
                     class="w-[34%] shadow-sm rounded-sm px-5 py-3 border border-gray-200">
                     <option value="0" disabled selected>دسته بندی اثر</option>
                     @foreach ($categoryItems as $item)
-                        <option value="{{$item->categoryID}}">{{$item->name}}</option>
+                        <option value="{{ $item->categoryID }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
                 <div class="flex py-5 justify-between items-center">
                     <div class="flex w-fit px-5  items-center">
-                        <label class="cursor-pointer" for="checkCategory">در صورت نبودن دسته بندی در مقادیر کلیک کنید</label>
+                        <label class="cursor-pointer" for="checkCategory">در صورت نبودن دسته بندی در مقادیر کلیک
+                            کنید</label>
                         <input class="mx-2 !cursor-pointer" type="checkbox" name="checkCategory" id="checkCategory">
                     </div>
-                    <input name="categoryName" class="w-3/5 mx-2 shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
-                    placeholder="دسته بندی را وارد کنید">
+                    <input id="categoryName" name="categoryName"
+                        class="w-3/5 mx-2 hidden shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
+                        placeholder="دسته بندی را وارد کنید">
                 </div>
                 <textarea class="w-full mt-10 shadow-sm rounded-sm px-5 py-3 h-96 border border-gray-200" name="description"
                     id="editor" placeholder="درباره اثر"></textarea>
@@ -74,24 +77,25 @@
                 </thead>
                 <tbody>
                     @foreach ($works as $work)
-                    <tr class="odd:bg-gray-100">
-                        <td class="border-2 text-center p-2 border-gray-300">{{$work->name}}</td>
-                        <td class="border-2 text-center p-2 border-gray-300">{{$work->categoryID}}</td>
-                        <td class="border-2 text-center p-2 border-gray-300"><img class="w-14 h-14 !mx-auto" src="{{url('/')}}/{{$work->picture}}" alt=""></td>
-                        <td class="border-2 text-center p-2 border-gray-300">{!! mb_substr($work->description,0,180) !!}...</td>
-                        <td class="border text-center flex justify-center items-center p-2 border-gray-300">
-                            <a class="p-3 mx-1 flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500"
-                                href="">
-                                <i class="fa fa-trash"></i>
+                        <tr class="odd:bg-gray-100">
+                            <td class="border-2 text-center p-2 border-gray-300">{{ $work->name }}</td>
+                            <td class="border-2 text-center p-2 border-gray-300">{{ $work->categoryID }}</td>
+                            <td class="border-2 text-center p-2 border-gray-300"><img class="w-14 h-14 !mx-auto"
+                                    src="{{ url('/') }}/{{ $work->picture }}" alt=""></td>
+                            <td class="border-2 text-center p-2 border-gray-300">{!! mb_substr($work->description, 0, 180) !!}...</td>
+                            <td class="border text-center flex justify-center items-center p-2 border-gray-300">
+                                <a class="p-3 mx-1 flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500"
+                                    href="">
+                                    <i class="fa fa-trash"></i>
 
-                            </a>
-                            <a class="p-3 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
-                                href=""> <i class="fa fa-edit"></i>
-                            </a>
-                        </td>
-                    </tr>
+                                </a>
+                                <a class="p-3 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
+                                    href=""> <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
                     @endforeach
-           
+
                 </tbody>
             </table>
         </div>
@@ -135,5 +139,20 @@
                 $(".imgperveiw").addClass("!hidden")
             });
         });
+    </script>
+    <script>
+        $("#checkCategory").change(() => {
+            if ($("#checkCategory").prop('checked') == true) {
+                $("#categoryName").removeClass("hidden")
+                $("#categoryIDSelect").attr("disabled",true)
+                $("#categoryIDSelect").addClass("!text-gray-300")
+            } else {
+                $("#categoryName").addClass("hidden")
+                $("#categoryIDSelect").attr("disabled",false)
+                $("#categoryIDSelect").removeClass("!text-gray-300")
+
+
+            }
+        })
     </script>
 @endsection

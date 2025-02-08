@@ -4,6 +4,7 @@ use App\Http\Controllers\AntiquitiesController;
 use App\Http\Controllers\BanerController;
 use App\Http\Controllers\CelebritiesController;
 use App\Http\Controllers\GalaryController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewHandelerController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,9 @@ Route::get("/", [ViewHandelerController::class, "Home"])->name("websitepages.hom
 Route::get('/adminpanel', function () {
     return view('adminpanel.layout.MainAdminPanelLayout');
 });
+Route::get('/addNews', [NewsController::class, "show"])->name("show.news");
+Route::post('/saveNews', [NewsController::class, "create"])->name("create.news");
+
 Route::get('/addWorks',[AntiquitiesController::class, "show"])->name("show.works");
 Route::post('/saveWorks',[AntiquitiesController::class, "create"])->name("create.antiquitise");
 

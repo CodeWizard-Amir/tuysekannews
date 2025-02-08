@@ -67,12 +67,12 @@
                 </div>
                 <div class="flex justify-between items-center">
                     <div class="w-[48%] bg-red-500 my-5 h-[150px] xl:h-[250px] rounded-md">
-                        <img class="w-full h-full rounded-md" src="{{ url('/') }}/{{ $firstpicure->picture }}"
-                            alt="{{ $firstpicure->name }}">
+                        <img class="w-full h-full rounded-md" src="{{ url('/') }}/{{ $firstpicure?->picture }}"
+                            alt="{{ $firstpicure?->name }}">
                     </div>
                     <div class="w-[48%] my-5 h-[150px] xl:h-[250px] rounded-md">
-                        <img class="w-full h-full rounded-md" src="{{ url('/') }}/{{ $secondpicture->picture }}"
-                            alt="{{ $secondpicture->name }}">
+                        <img class="w-full h-full rounded-md" src="{{ url('/') }}/{{ $secondpicture?->picture }}"
+                            alt="{{ $secondpicture?->name }}">
                     </div>
                 </div>
             </div>
