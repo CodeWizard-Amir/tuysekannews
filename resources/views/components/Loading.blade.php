@@ -1,0 +1,3 @@
+<section class="w-[100vw] absolute top-0 right-0 text-white h-[100vh] bg-gray-900 flex justify-center items-center" id="loading">
+    درحال بارگزاری ...
+</section>
