@@ -19,7 +19,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // بارگذاری فایل breadcrumbs.php
-        require base_path('routes/breadcrumbs.php');
     }
 }

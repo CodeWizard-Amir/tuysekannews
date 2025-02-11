@@ -3,19 +3,16 @@
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
-// صفحه اصلی
-Breadcrumbs::for('Home', function (BreadcrumbTrail $trail) {
-    $trail->push('صفحه اصلی', route('Home'));
+// تعریف Breadcrumb برای صفحه اصلی
+Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
+    $trail->push('صفحه اصلی', route('websitepages.home'));
 });
+Breadcrumbs::for('celebritise', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
 
-// مشاهیر
-Breadcrumbs::for('show.galary', function (BreadcrumbTrail $trail) {
-    $trail->parent('home'); // ارث‌بری از صفحه اصلی
-    $trail->push('گالری تصاویر', route('show.galary'));
+    $trail->push('مشاهیر', route('websitepages.Celebritise'));
 });
-
-// مشاهیر / بوعلی سینا
-// Breadcrumbs::for('famous.show', function (BreadcrumbTrail $trail, $name) {
-//     $trail->parent('famous.index'); // ارث‌بری از مشاهیر
-//     $trail->push($name, route('famous.show', $name));
-// });
+Breadcrumbs::for('celebrity', function (BreadcrumbTrail $trail, $celebrity) {
+    $trail->parent('celebritise');
+    $trail->push($celebrity->name, route('websitepages.celebrity',['celebrityID'=>$celebrity->celebrityID ,'name'=>$celebrity->name]));
+});

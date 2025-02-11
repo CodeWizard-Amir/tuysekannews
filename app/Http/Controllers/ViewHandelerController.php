@@ -29,6 +29,14 @@ class ViewHandelerController extends Controller
     }
     public function Celebritise()
     {
-        return view("pages.Celebritise");
+        $celebritise = Celebrities::get();
+
+        return view("pages.Celebritise",compact("celebritise"));
+    }
+    public function Each_Celebrity($celebrityID)
+    {
+        $celebrity = Celebrities::where("celebrityID",$celebrityID)->get()->first();
+        if(!$celebrity) abort(404);
+        return view("pages.Each_celebrity",compact("celebrity"));
     }
 }
