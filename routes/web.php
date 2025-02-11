@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [ViewHandelerController::class, "Home"])->name("websitepages.home");
 Route::get("/Galary", [ViewHandelerController::class, "Galary"])->name("websitepages.Galary");
+Route::get("/News", [ViewHandelerController::class, "News"])->name("websitepages.News");
+Route::get("/Antiquities", [ViewHandelerController::class, "Antiquities"])->name("websitepages.Antiquities");
 Route::get("/Celebritise", [ViewHandelerController::class, "Celebritise"])->name("websitepages.Celebritise");
 Route::get("/Celebrity/{celebrityID}/{name}", [ViewHandelerController::class, "Each_celebrity"])->name("websitepages.celebrity");
 

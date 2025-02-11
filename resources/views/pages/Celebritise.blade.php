@@ -1,18 +1,8 @@
 @extends('layout.mainlayout')
 @section('body')
     @include('layout.header')
-    <div
-        class="flex p-5 justify-between lg:w-3/4 w-full items-center mx-auto !lg:text-sm !text-xs lg:px-10 px-5 py-5 my-3 lg:my-10">
-        <h2 class="lg:text-xl text-[17px] font-bold">
-           مشاهیر
-        </h2>
-        <ul class="flex hover:[&_>li>a]:text-sky-500 items-center text-gray-700 space-x-1 space-x-reverse">
-            <li class="">
-                {!! Breadcrumbs::render('celebritise') !!}
-            </li>
-        </ul>
+    @include('components.website-path',['breadcrumbs_name' => "celebritise","heading_content" =>"مشاهیر"])
 
-    </div>
     <section class=" w-full xl:w-3/4 mx-auto lg:px-10 px-3">
         <div class="w-full shadow-sm border-2 rounded-md p-2 lg:px-10 px-1 border-gray-100">
             <p class="my-4 text-sm mx-2" for="">نام فرد مورد نظر را وارد کنید</p>

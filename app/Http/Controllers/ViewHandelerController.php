@@ -41,4 +41,14 @@ class ViewHandelerController extends Controller
         if(!$celebrity) abort(404);
         return view("pages.Each_celebrity",compact("celebrity","news","celebritise"));
     }
+    public function News()
+    {
+        $news = News::get();
+        return view('pages.news',compact("news"));
+    }
+    public function Antiquities()
+    {
+        $works = Antiquities::get();
+        return view('pages.works',compact("works"));
+    }
 }

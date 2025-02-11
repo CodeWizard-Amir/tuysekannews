@@ -1,16 +1,7 @@
 @extends('layout.mainlayout')
 @section('body')
     @include('layout.header')
-    <div
-        class="flex p-5 justify-between lg:w-3/4 w-full items-center mx-auto !lg:text-sm !text-xs lg:px-10 px-5 py-5 my-3 lg:my-10">
-        <h1 class="lg:text-lg font-bold">
-            {{ $celebrity?->name }}
-        </h1>
-        <div class="flex justify-center items-center">
-            {!! Breadcrumbs::render('celebrity', $celebrity) !!}
-        </div>
-
-    </div>
+@include('components.website-path',['breadcrumbs_name' => "celebrity","heading_content" =>$celebrity->name,"extra_routeData"=>$celebrity])
     <section class=" w-full 3xl:w-3/4 flex flex-col xl:flex-row justify-between  my-5 mx-auto lg:px-10 px-3">
         <div class=" w-full xl:w-[70%] shadow-sm border border-gray-100 p-5">
             <img class="w-full h-[300px] xl:h-[500px] rounded-md" src="{{ url('/') }}/{{ $celebrity->picture }}" alt="">

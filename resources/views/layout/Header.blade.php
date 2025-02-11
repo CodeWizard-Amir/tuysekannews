@@ -24,9 +24,9 @@
     <nav class=" flex space-x-10 p-6 shadow-sm justify-start font-bold lg:justify-center itec">
         <ul class="hidden hover:[&_>li>a]:text-amber-700 space-x-10 space-x-reverse lg:flex">
             <li><a href="/">صفحه اصلی</a></li>
-            <li><a href="#">اخرین اخبار</a></li>
+            <li><a href="{{route('websitepages.News')}}">اخرین اخبار</a></li>
             <li><a href="{{route('websitepages.Celebritise')}}">مشاهیر</a></li>
-            <li><a href="#">آثار تویسرکانی ها</a></li>
+            <li><a href="{{route('websitepages.Antiquities')}}">آثار تویسرکانی ها</a></li>
             <li><a href="{{route('websitepages.Galary')}}">گالری تصاویر</a></li>
             <li><a href="#">درباره تویسرکان</a></li>
         </ul>

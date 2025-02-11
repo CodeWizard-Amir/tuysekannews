@@ -55,6 +55,27 @@
             console.log("first")
         });
     </script>
+        <script>
+            function showCurrentTime() {
+                const currentTime = new Date();
+                const hours = currentTime.getHours();
+                const minutes = currentTime.getMinutes();
+                const seconds = currentTime.getSeconds();
+                const day = currentTime.getDate();
+                const month = currentTime.getMonth() + 1;
+                const year = currentTime.getFullYear();
+    
+                const dateElement = document.getElementById("date");
+                const timeElement = document.getElementById("time");
+    
+                dateElement.textContent = `${day}/${month}/${year}`;
+                timeElement.textContent =
+                    `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    
+                setTimeout(showCurrentTime, 1000);
+            }
+            showCurrentTime();
+        </script>
 </body>
 
 </html>
