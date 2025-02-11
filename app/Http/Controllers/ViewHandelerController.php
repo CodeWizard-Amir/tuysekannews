@@ -19,7 +19,16 @@ class ViewHandelerController extends Controller
         $works = Antiquities::get();
         $news = News::get()->take(8);
         $secondpicture = Galary::whereNotIn("id", [$firstpicure?->id])->inRandomOrder()->first();
-        $galary = Galary::whereNotIn("id", [$secondpicture?->id,$firstpicure?->id])->get();
-        return view("pages.home", compact("celebritise","news", "baners", "works", "galary", "firstpicure", "secondpicture"));
+        $galary = Galary::whereNotIn("id", [$secondpicture?->id, $firstpicure?->id])->get();
+        return view("pages.home", compact("celebritise", "news", "baners", "works", "galary", "firstpicure", "secondpicture"));
+    }
+    public function Galary()
+    {
+        $baners = Baner::get();
+        return view("pages.Galary");
+    }
+    public function Celebritise()
+    {
+        return view("pages.Celebritise");
     }
 }

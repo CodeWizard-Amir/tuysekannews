@@ -28,7 +28,7 @@
                     </path>
                 </svg>
             </div>
-            {{-- -------------List--------------- --}}p-3 px-5
+            {{-- -------------List--------------- --}}
             <ul class="my-8 p-5 space-y-5">
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
                         href="{{route("show.users")}}">اضافه کردن ادمین</a></li>

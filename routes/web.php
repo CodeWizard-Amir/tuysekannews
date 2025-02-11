@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", [ViewHandelerController::class, "Home"])->name("websitepages.home");
+Route::get("/Galary", [ViewHandelerController::class, "Galary"])->name("websitepages.Galary");
+Route::get("/Celebritise", [ViewHandelerController::class, "Celebritise"])->name("websitepages.Celebritise");
 Route::get('/adminpanel', function () {
     return view('adminpanel.layout.MainAdminPanelLayout');
 });

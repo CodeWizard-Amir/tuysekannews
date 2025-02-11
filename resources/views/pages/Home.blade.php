@@ -1,6 +1,7 @@
 @extends('layout.Mainlayout')
 @section('body')
     @include('layout.Header')
+    @include('components.baner')
     {{-- آثار section --}}
     <section class="2xl:w-[75%] lg:w-[90%] w-full mx-auto mt-[200px] flex flex-col justify-center items-center">
         <h2 class="text-xl my-5 font-bold">آثار تویسرکانی ها</h2>
