@@ -6,7 +6,7 @@
             <div class=" mx-2 lg:mx-5" id="time"></div>
         </div>
 
-        <div class="lg:w-32 w-24 flex justify-center items-center mr-44  lg:h-24 h-20">
+        <div id="logo" class="lg:w-32 w-24 flex justify-center items-center mr-44  lg:h-24 h-20">
             <img class="w-full h-full" src="{{ url('/') }}/assets/img/1.png" alt="">
         </div>
 

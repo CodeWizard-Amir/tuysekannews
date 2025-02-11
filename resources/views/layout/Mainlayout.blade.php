@@ -27,7 +27,8 @@
             right: 110%;
             top: 10%;
         }
-        .breadcrumb>li:last-child:before{
+
+        .breadcrumb>li:last-child:before {
             content: '' !important;
 
         }
@@ -41,10 +42,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
-<body>
+<body class="overflow-hidden">
     @yield('body')
+    {{-- @include('components.Loading') --}}
+    <script src="{{url("/")}}/assets/js/jQuery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @yield('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            $("body").removeClass("overflow-hidden")
+            $("#loading").addClass("hidden")
+            console.log("first")
+        });
+    </script>
 </body>
 
 </html>

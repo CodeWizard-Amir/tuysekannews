@@ -13,7 +13,7 @@ class ViewHandelerController extends Controller
 {
     public function Home()
     {
-        $celebritise = Celebrities::get();
+        $celebritise = Celebrities::get()->take(12);
         $baners = Baner::get();
         $firstpicure = Galary::inRandomOrder()->first();
         $works = Antiquities::get();
@@ -36,7 +36,9 @@ class ViewHandelerController extends Controller
     public function Each_Celebrity($celebrityID)
     {
         $celebrity = Celebrities::where("celebrityID",$celebrityID)->get()->first();
+        $news = News::inRandomOrder()->get()->take(5);
+        $celebritise = Celebrities::get()->take(5);
         if(!$celebrity) abort(404);
-        return view("pages.Each_celebrity",compact("celebrity"));
+        return view("pages.Each_celebrity",compact("celebrity","news","celebritise"));
     }
 }

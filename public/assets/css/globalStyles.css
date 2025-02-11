@@ -10,5 +10,19 @@
   }
   html,body{
     font-family: Vazir !important;
-
+  }
+  #logo{
+    animation: logoAnimation 1200ms ;
+  }
+  @keyframes logoAnimation {
+    0% {
+      opacity: 0;
+      top: -100px; /* موقعیت اولیه */
+      transform: translateY(-100px);
+    }
+    100% {
+      opacity: 1;
+      top: 0; /* موقعیت نهایی */
+      transform: translateY(0);
+    }
   }
