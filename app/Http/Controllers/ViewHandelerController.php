@@ -24,8 +24,8 @@ class ViewHandelerController extends Controller
     }
     public function Galary()
     {
-        $baners = Baner::get();
-        return view("pages.Galary");
+        $galaryImages = Galary::get();
+        return view("pages.Galary",compact('galaryImages'));
     }
     public function Celebritise()
     {
