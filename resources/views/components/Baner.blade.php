@@ -25,7 +25,7 @@
         <div class="swiper celebritise_slider !py-10 w-full">
             <div class="swiper-wrapper">
                 @foreach ($celebritise as $item)
-                    <a href="#"
+                    <a href="Celebrity/{{$item->celebrityID}}/{{str_replace(" ","-",$item->name)}}"
                         class=" swiper-slide !flex !justify-between  p-2 h-36 bg-white shadow-xl hover:shadow-none duration-500 border rounded-xl">
                         <div class="flex flex-col  space-y-2 p-2">
                             <h3>{{ $item->name }}</h3>

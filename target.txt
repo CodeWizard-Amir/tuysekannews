@@ -1,0 +1,29 @@
+jQuery Validator
+title of page  => has finished!
+Auth&&Login
+About us  => has finished!
+news && Each_News
+search Form 
+Serach in pages for works and ...
+Verta setting 
+SEO Works
+hide Menu
+Clean up
+short-links
+Mobile checking ...
+Error pages
+//================================
+adminPanel : {
+    main page to show Amar
+    update Option
+    show alert after update or delete
+    show users 
+    Support 
+    Make active route
+    Newsleter
+    aboutUs
+    Admin customise its self 
+    laravel Relationn
+    Clean up Database
+    Clean up
+}

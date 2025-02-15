@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Antiquities;
 use App\Models\Baner;
 use App\Models\Celebrities;
@@ -35,10 +36,9 @@ class ViewHandelerController extends Controller
     }
     public function Each_Celebrity($celebrityID)
     {
-        $celebrity = Celebrities::where("celebrityID",$celebrityID)->get()->first();
+        $celebrity = Celebrities::where("celebrityID",$celebrityID)->get()->firstOrFail();
         $news = News::inRandomOrder()->get()->take(5);
-        $celebritise = Celebrities::get()->take(5);
-        if(!$celebrity) abort(404);
+        $celebritise = Celebrities::get()->except($celebrity->id)->take(5);
         return view("pages.Each_celebrity",compact("celebrity","news","celebritise"));
     }
     public function News()
@@ -51,4 +51,20 @@ class ViewHandelerController extends Controller
         $works = Antiquities::get();
         return view('pages.works',compact("works"));
     }
+
+    public function Each_work($id)
+    {
+        $work = Antiquities::findOrFail($id);
+        $otherWorks = Antiquities::get();
+        $news = News::inRandomOrder()->get()->take(5);
+        $celebritise = Celebrities::inRandomOrder()->get()->take(5);
+        return view('pages.Each_work',compact('work','news','celebritise','otherWorks'));
+    }
+
+    public function About(About $about)
+    {
+        return view('pages.About_US');
+    }
+
+
 }

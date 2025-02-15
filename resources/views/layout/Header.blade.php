@@ -2,7 +2,7 @@
     <section class="flex border-b-2 border-gray-100 justify-between px-2 lg:px-20  items-center">
         <div
             class="flex justify-between lg:space-y-0 space-y-2 flex-col md:flex-row xl:text-[15px]  text-[12px] items-center px-3 py-1">
-            <div class="" id="date">دوشنبه - 23 آبان</span></div>
+            <div class="" id="date">{{Verta::now()->format('%A')}} ، {{Verta::now()->format('d')}} {{Verta::now()->format('%B')}}</span></div>
             <div class=" mx-2 lg:mx-5" id="time"></div>
         </div>
 
@@ -23,14 +23,14 @@
     </section>
     <nav class=" flex space-x-10 p-6 shadow-sm justify-start font-bold lg:justify-center itec">
         <ul class="hidden hover:[&_>li>a]:text-amber-700 space-x-10 space-x-reverse lg:flex">
-            <li><a href="/">صفحه اصلی</a></li>
+            <li><a href="{{route('websitepages.home')}}">صفحه اصلی</a></li>
             <li><a href="{{route('websitepages.News')}}">اخرین اخبار</a></li>
             <li><a href="{{route('websitepages.Celebritise')}}">مشاهیر</a></li>
             <li><a href="{{route('websitepages.Antiquities')}}">آثار تویسرکانی ها</a></li>
             <li><a href="{{route('websitepages.Galary')}}">گالری تصاویر</a></li>
-            <li><a href="#">درباره تویسرکان</a></li>
+            <li><a href="{{route('websitepages.About')}}">درباره تویسرکان</a></li>
         </ul>
-        <button class="flex lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        <button id="show-mobile-menu" class="flex lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
             </svg>

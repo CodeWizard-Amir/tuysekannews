@@ -5,6 +5,8 @@ use App\Http\Controllers\BanerController;
 use App\Http\Controllers\CelebritiesController;
 use App\Http\Controllers\GalaryController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\SupportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewHandelerController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +27,9 @@ Route::get("/Galary", [ViewHandelerController::class, "Galary"])->name("websitep
 Route::get("/News", [ViewHandelerController::class, "News"])->name("websitepages.News");
 Route::get("/Antiquities", [ViewHandelerController::class, "Antiquities"])->name("websitepages.Antiquities");
 Route::get("/Celebritise", [ViewHandelerController::class, "Celebritise"])->name("websitepages.Celebritise");
+Route::get("/about-us", [ViewHandelerController::class, "About"])->name("websitepages.About");
 Route::get("/Celebrity/{celebrityID}/{name}", [ViewHandelerController::class, "Each_celebrity"])->name("websitepages.celebrity");
+Route::get("/Antiquity/{id}/{name}", [ViewHandelerController::class, "Each_work"])->name("websitepages.Antiquitiy");
 
 
 
@@ -57,3 +61,6 @@ Route::delete("/deleteBaner/{id}" , [BanerController::class, "delete"])->name("d
 Route::get("/addCelebrity" , [CelebritiesController::class, "show"])->name("show.celebritise");
 Route::post("/saveCelebrity" , [CelebritiesController::class, "create"])->name( "create.celebrity");
 Route::delete("/deleteCelebrity/{id}" , [CelebritiesController::class, "delete"])->name( "delete.celebrity");
+
+Route::post("/saveSupport" , [SupportController::class, "create"])->name( "create.support");
+Route::post("/saveNewsletter" , [NewsletterController::class, "create"])->name( "create.newsletter");

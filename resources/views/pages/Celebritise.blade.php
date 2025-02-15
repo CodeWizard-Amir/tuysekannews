@@ -1,5 +1,9 @@
 @extends('layout.mainlayout')
+@section('title', "تویسرکان | مشاهیر ")
+
 @section('body')
+@include('components.mobile-menu')
+
     @include('layout.header')
     @include('components.website-path',['breadcrumbs_name' => "celebritise","heading_content" =>"مشاهیر"])
 
@@ -15,7 +19,7 @@
             @foreach ($celebritise as $item)
                 <a href="Celebrity/{{$item->celebrityID}}/{{str_replace(" ","-",$item->name)}}"
                     class="w-full overflow-hidden pb-5 border my-2 rounded-md md:w-[48%] lg:w-[32%] border-gray-200 shadow-sm h-[400px]">
-                    <img class="w-full rounded-t-md bg-red-500 h-[60%]" src="{{ url('/') }}/{{ $item->picture }}"
+                    <img class="w-full rounded-t-md h-[60%]" src="{{ url('/') }}/{{ $item->picture }}"
                         alt="{{ $item->name }}">
                     <div class="flex justify-between py-4 px-5 items-center">
                         <h2 class="">{{ $item->name }}</h2>

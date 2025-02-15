@@ -12,6 +12,10 @@ Breadcrumbs::for('celebritise', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('مشاهیر', route('websitepages.Celebritise'));
 });
+Breadcrumbs::for('about', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('درباره تویسرکان', route('websitepages.About'));
+});
 
 Breadcrumbs::for('works', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
@@ -30,4 +34,9 @@ Breadcrumbs::for('news', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('celebrity', function (BreadcrumbTrail $trail, $extra_routeData) {
     $trail->parent('celebritise');
     $trail->push($extra_routeData->name, route('websitepages.celebrity',['celebrityID'=>$extra_routeData->celebrityID ,'name'=>$extra_routeData->name]));
+});
+
+Breadcrumbs::for('work', function (BreadcrumbTrail $trail, $extra_routeData) {
+    $trail->parent('works');
+    $trail->push($extra_routeData->name, route('websitepages.Antiquitiy',['id'=>$extra_routeData->id ,'name'=>$extra_routeData->name]));
 });

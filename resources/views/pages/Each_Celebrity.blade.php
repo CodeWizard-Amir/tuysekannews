@@ -1,14 +1,18 @@
 @extends('layout.mainlayout')
+@section('title', "تویسرکان | $celebrity?->name ")
+
 @section('body')
+@include('components.mobile-menu')
+
     @include('layout.header')
 @include('components.website-path',['breadcrumbs_name' => "celebrity","heading_content" =>$celebrity->name,"extra_routeData"=>$celebrity])
     <section class=" w-full 3xl:w-3/4 flex flex-col xl:flex-row justify-between  my-5 mx-auto lg:px-10 px-3">
         <div class=" w-full xl:w-[70%] shadow-sm border border-gray-100 p-5">
-            <img class="w-full h-[300px] xl:h-[500px] rounded-md" src="{{ url('/') }}/{{ $celebrity->picture }}" alt="">
-            <h2 class="text-xl m-4">{{ $celebrity->name }}</h2>
-            <p class="m-4">{{ $celebrity->job }}</p>
+            <img class="w-full h-[300px] xl:h-[500px] rounded-md" src="{{ url('/') }}/{{ $celebrity?->picture }}" alt="{{$celebrity?->picture}}">
+            <h2 class="text-xl m-4">{{ $celebrity?->name }}</h2>
+            <p class="m-4">{{ $celebrity?->job }}</p>
             <div class="[&_>p]:leading-8 [&_>p]:text-justify">
-                {!! $celebrity->description !!}
+                {!! $celebrity?->description !!}
             </div>
         </div>
         <div class="w-full xl:w-[28%] mt-5 xl:mt-0 xl:justify-start justify-between flex flex-col md:flex-row xl:flex-col h-fit !sticky !top-2 !right-0">
@@ -19,7 +23,7 @@
                         <li class="my-2 flex justify-between items-center py-3">
                             <a class="text-sm hover:text-orange-800 flex justify-center items-center" href="#">
                                 <i class="mx-2 text-xs text-orange-800	fas fa-caret-left"></i>
-                                {{mb_substr($item->title,0,35)}}
+                                {{mb_substr($item?->title,0,35)}}
                             </a>
                             <div class="flex justify-between text-[8px] items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -31,7 +35,7 @@
                                         clip-rule="evenodd" />
                                 </svg>
 
-                                <span class="mx-1"> {{$item->created_at}} </span>
+                                <span class="mx-1"> {{$item?->created_at}} </span>
                             </div>
                         </li>
                         @endforeach
