@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class NewsletterController extends Controller
 {
+    public function show()
+    {
+        $newsletter = Newsletter::get();
+        return view('adminpanel.pages.Newsletter',compact('newsletter'));
+    }
     public function create(Newsletter $newsletter , Request $request)
     {
         $data = $request->all();

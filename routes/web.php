@@ -53,6 +53,8 @@ Route::delete('/deleteGalary/{id}',[GalaryController::class, "delete"])->name("d
 Route::get("/addAdmin" , [UserController::class, "show"])->name("show.users");
 Route::post("/saveAdmin" , [UserController::class, "create"])->name("create.user");
 // ---------------------------------------------------
+Route::get("/newsletter" , [NewsletterController::class, "show"])->name("show.newsletter");
+// --------------------------------------------------------------------------
 Route::get("/addBaner" , [BanerController::class, "show"])->name("show.baner");
 Route::post("/saveBaner" , [BanerController::class, "create"])->name("create.baner");
 Route::delete("/deleteBaner/{id}" , [BanerController::class, "delete"])->name("delete.baner");

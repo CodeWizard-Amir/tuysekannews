@@ -1,24 +1,22 @@
-jQuery Validator
 title of page  => has finished!
-Auth&&Login
+Serach in pages for works and ... => working ... => has finished !
 About us  => has finished!
+hide Menu => has finished!
+
+jQuery Validator
+Auth&&Login
 news && Each_News
 search Form 
-Serach in pages for works and ...
-Verta setting 
-SEO Works
-hide Menu
-Clean up
-short-links
-Mobile checking ...
 Error pages
+Mobile checking ...
+SEO Works
+Clean up
 //================================
 adminPanel : {
     main page to show Amar
     update Option
     show alert after update or delete
-    show users 
-    Support 
+    Support
     Make active route
     Newsleter
     aboutUs

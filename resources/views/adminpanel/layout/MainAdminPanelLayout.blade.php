@@ -33,7 +33,7 @@
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
                         href="{{route("show.users")}}">اضافه کردن ادمین</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
-                        href="">کاربران</a></li>
+                        href="{{route('show.newsletter')}}">خبرنامه</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
                         href="{{route('show.baner')}}">اضافه کردن بنر سایت</a></li>
                 <li class="bg-gray-800  border-r-2 border-green-400 text-white"><a class="block p-3 px-5"
