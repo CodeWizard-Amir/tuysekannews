@@ -1,4 +1,6 @@
 @extends('adminpanel.layout.MainAdminPanelLayout')
+@section('title','ادمین پنل | گالری تصاویر')
+
 @section('head')
     <style>
         .ck-placeholder {

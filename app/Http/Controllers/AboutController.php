@@ -7,59 +7,23 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function show()
     {
-        //
+        $about = About::get()->first();
+        $data_of_about = $about ? $about : false;
+        return view('adminpanel.pages.addAbout',compact('data_of_about'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(About $about ,Request $request)
     {
-        //
+        $data = $request->all();
+        $about->create($data);
+        return back()->with('success', 'عملیات با موفقیت انجام شد!');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(Request $request,$id)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(About $about)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(About $about)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, About $about)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(About $about)
-    {
-        //
+        $update_data_about = About::find($id); 
+        $data = $request->all();
+        $update_data_about->update($data);
+        return back()->with('success', 'عملیات با موفقیت انجام شد!');
     }
 }

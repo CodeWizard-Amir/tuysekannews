@@ -2,26 +2,31 @@ title of page  => has finished!
 Serach in pages for works and ... => working ... => has finished !
 About us  => has finished!
 hide Menu => has finished!
+Error pages => tommarrow => has finished!
+Auth&&Login => tommarrow => has finished !
 
 jQuery Validator
-Auth&&Login
 news && Each_News
 search Form 
-Error pages
 Mobile checking ...
 SEO Works
-Clean up
+Clean upd
 //================================
 adminPanel : {
+    Support => has finished
+    Newsleter => has finished
+    aboutUs => tommarrow => has finished!
+    Make active route => tommarrow => has finished
+
     main page to show Amar
     update Option
-    show alert after update or delete
-    Support
-    Make active route
-    Newsleter
-    aboutUs
-    Admin customise its self 
-    laravel Relationn
-    Clean up Database
+    laravel Relations => tommarrow
+    
+    Clean up Database 
     Clean up
 }
+//========//========//=========//=========//=========//========//=======//=======//=======//=======//======//======//=========//=======//===============
+need to complete({
+    Admin customise its self => tommarrow => hlf finished
+    show alert after update or delete 
+})

@@ -61,9 +61,10 @@ class ViewHandelerController extends Controller
         return view('pages.Each_work',compact('work','news','celebritise','otherWorks'));
     }
 
-    public function About(About $about)
+    public function About()
     {
-        return view('pages.About_US');
+        $about = About::get()->first();
+        return view('pages.About_US',compact('about'));
     }
 
 

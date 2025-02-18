@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('userID')->Primary()->unique();
             $table->string('email')->unique();
             $table->string('phone')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('status')->default(0);
+            $table->string('picture')->default('assets/img/userImagePlaceholder.png');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,4 +1,6 @@
 @extends('adminpanel.layout.MainAdminPanelLayout')
+@section('title','ادمین پنل | اضافه کردن مشاهیر')
+
 @section('head')
     <style>
         .ck-placeholder {
@@ -22,7 +24,6 @@
                 <br>
                 <br>
                 <span class="mx-1">تصویر شخصیت برجسته</span>
-
                 <div class="flex !hidden imgperveiw relative justify-center [&_>svg]:hover:text-purple-800 items-center w-52 h-72 border border-gray-200 shadow-md cursor-pointer rounded-md">
                     <img class="w-full h-full rounded-md"  id="preview-img" src="" alt="">
                     <button type="button" id="deletePictureBtn" class="text-red-500 absolute top-0 right-[88%]">

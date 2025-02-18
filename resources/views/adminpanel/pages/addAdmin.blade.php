@@ -1,4 +1,6 @@
 @extends('adminpanel.layout.MainAdminPanelLayout')
+@section('title','ادمین پنل | اضافه کردن ادمین')
+
 @section('body')
     <section class="p-5">
         <h2 class="rounded-full border-r-2 px-5 py-3 !border-indigo-500">اضافه کردن ادمین</h2>

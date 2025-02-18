@@ -1,4 +1,6 @@
 @extends('adminpanel.layout.MainAdminPanelLayout')
+@section('title',' ادمین پنل | اضافه کردن خبر')
+
 @section('head')
     <style>
         .ck-placeholder {
