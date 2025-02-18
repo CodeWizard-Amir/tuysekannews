@@ -17,4 +17,8 @@ class News extends Model
         'seen',
         'like',
     ];
+    public function N_Category()
+    {
+        return $this->hasOne(newsCategory::class , 'newsCategoryID','newsCategoryID');
+    }
 }

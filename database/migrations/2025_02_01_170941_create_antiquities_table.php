@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("AntiquitiyID")->Primary()->unique();
             $table->string("name");
             $table->string("categoryID");
-            $table->foreign("categoryID")->references("categoryID")->on("categories")->cascadeOnDelete();
+            $table->foreign("categoryID")->references( "categoryID")->on("categories")->cascadeOnDelete();
             $table->string("picture");
             $table->longText("description");
             $table->timestamps();

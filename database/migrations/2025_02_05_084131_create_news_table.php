@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string("title");
             $table->string("newsID");
             $table->string("newsCategoryID");
+            $table->foreign("newsCategoryID")->references( "newsCategoryID")->on("news_categories")->cascadeOnDelete();
+
             $table->longText("description");
             $table->string("picture");
             $table->string("seen")->default(0);

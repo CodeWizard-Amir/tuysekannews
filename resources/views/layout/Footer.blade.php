@@ -21,13 +21,15 @@
         <div class="mx-0 flex flex-col justify-center items-center lg:mx-24">
             <h2 class="text-xl my-4">عضویت در خبرنامه</h2>
             <div class="flex w-[400px] justify-center">
-                <form class="flex w-[350px]  md:w-[400px] justify-between" id="NewsLetterAjaxForm" method="POST"
-                    action="{{ route('create.newsletter') }}">
+                <form class="flex w-[350px] newsletter-form  md:w-[400px]" id="NewsLetterAjaxForm"
+                    method="POST" action="{{ route('create.newsletter') }}">
                     @csrf
-                    <input class="py-4 w-[88%] outline-none text-black  rounded-r-xl px-5" type="text" name="email"
-                        placeholder="ایمیل خود را وارد کنید" id="">
+                    <div class=" w-[88%]">
+                        <input class="py-4 w-full outline-none text-black  rounded-r-xl px-5" type="text"
+                            name="email" placeholder="ایمیل خود را وارد کنید" id="email">
+                    </div>
                     <button
-                        class="bg-red-800 w-[10%] px-6 hover:bg-red-500 rounded-l-xl text-white font-bold flex justify-center items-center"><i
+                        class="bg-red-800 w-[10%] !max-h-20 h-14 px-6 hover:bg-red-500 rounded-l-xl text-white font-bold flex justify-center items-center"><i
                             class="fa fa-arrow-left	"></i>
                     </button>
                 </form>

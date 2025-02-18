@@ -85,9 +85,10 @@
         </div>
     </main>
     <script src="{{ url('/') }}/assets/js/jQuery.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="{{ url('/') }}/assets/js/sweetalert.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+    <script src="{{ url('/') }}/assets/js/sweetalert.js"></script>
     <script src="{{ url('/') }}/assets/js/validators.js"></script>
     @yield('scripts')
     <script>

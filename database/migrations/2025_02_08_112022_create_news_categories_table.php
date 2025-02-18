@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('news_categories', function (Blueprint $table) {
             $table->id();
+            $table->string("newsCategoryID")->Primary()->unique();
             $table->string("name");
-            $table->string("newsCategoryID");
             $table->timestamps();
         });
     }

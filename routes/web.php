@@ -45,6 +45,9 @@ Route::get('login',function(){
 })->name('login');
 Route::get("/addAdmin" , [UserController::class, "show"])->name("show.users");
 Route::post("/saveAdmin" , [UserController::class, "create"])->name("create.user");
+
+Route::post("/saveSupport" , [SupportController::class, "create"])->name( "create.support");
+Route::post("/saveNewsletter" , [NewsletterController::class, "create"])->name( "create.newsletter");
 Route::
 middleware('check.admin')->
 prefix('adminpanel')
@@ -83,7 +86,4 @@ prefix('adminpanel')
     Route::get("/addCelebrity" , [CelebritiesController::class, "show"])->name("show.celebritise");
     Route::post("/saveCelebrity" , [CelebritiesController::class, "create"])->name( "create.celebrity");
     Route::delete("/deleteCelebrity/{id}" , [CelebritiesController::class, "delete"])->name( "delete.celebrity");
-    
-    Route::post("/saveSupport" , [SupportController::class, "create"])->name( "create.support");
-    Route::post("/saveNewsletter" , [NewsletterController::class, "create"])->name( "create.newsletter");
 });

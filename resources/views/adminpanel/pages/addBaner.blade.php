@@ -1,45 +1,49 @@
 @extends('adminpanel.layout.MainAdminPanelLayout')
-@section('title','ادمین پنل | اضافه کردن بنر')
+@section('title', 'ادمین پنل | اضافه کردن بنر')
 
 @section('body')
     <section class="p-5">
         <h2 class="rounded-full border-r-2 px-5 py-3 !border-indigo-500">اضافه کردن ادمین</h2>
         <div class="my-5 w-full border-t-2 border-red-500 bg-white p-10">
-            <form class="w-full space-y-5 px-10" action="{{ route('create.baner') }}" method="POST"
-                enctype="multipart/form-data">
+            <form id="baner-form" class="w-full flex justify-between flex-wrap space-y-5 px-10" action="{{ route('create.baner') }}"
+                method="POST" enctype="multipart/form-data">
                 @csrf
-                <input name="name" class="w-[48%]  shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
-                    placeholder="توضیحاتی کوتاه درباره تصویر (حداکثر 255کاراکتر)">
-                <input title="لینکی که وارد میکنید میشود ادرس این تصویر تا زمان کلیک بر روی ان به ان ادرس برود"
-                    name="link" class="w-[48%] shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
-                    placeholder="لینک تصویر (در صورت وجود)">
-                <br>
-                <br>
-                <span class="mx-1">تصویر بنر </span>
+                <div class="w-[48%] ">
+                    <input name="name" id="name" class="w-full shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
+                        placeholder="توضیحاتی کوتاه درباره تصویر (حداکثر 255کاراکتر)">
+                </div>
+                <div class="w-[48%]">
+                    <input id="link" title="لینکی که وارد میکنید میشود ادرس این تصویر تا زمان کلیک بر روی ان به ان ادرس برود"
+                        name="link" class="w-full shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
+                        placeholder="لینک تصویر (در صورت وجود)">
+                </div>
+                <div class="w-full">
+                    <span class="mx-1">تصویر بنر </span>
+                    <div
+                        class="flex !hidden imgperveiw relative justify-center [&_>svg]:hover:text-purple-800 items-center w-full h-96 border border-gray-200 shadow-md cursor-pointer rounded-md">
+                        <img class="w-full h-full rounded-md" id="preview-img" src="" alt="">
+                        <button type="button" id="deletePictureBtn" class="text-red-500 absolute top-0 right-[98%]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
 
-                <div
-                    class="flex !hidden imgperveiw relative justify-center [&_>svg]:hover:text-purple-800 items-center w-full h-96 border border-gray-200 shadow-md cursor-pointer rounded-md">
-                    <img class="w-full h-full rounded-md" id="preview-img" src="" alt="">
-                    <button type="button" id="deletePictureBtn" class="text-red-500 absolute top-0 right-[98%]">
+                        </button>
+                    </div>
+                    <label
+                        class="lableInput flex  relative justify-center [&_>svg]:hover:text-purple-800 items-center w-full h-96 border border-gray-200 shadow-md cursor-pointer rounded-md"
+                        for="picture">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
 
-                    </button>
+                    </label>
+                    <input class="w-0 h-0 opacity-0 file-input" type="file" name="picture" id="picture">
                 </div>
-                <label
-                    class="lableInput flex  relative justify-center [&_>svg]:hover:text-purple-800 items-center w-full h-96 border border-gray-200 shadow-md cursor-pointer rounded-md"
-                    for="picture">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
 
-                </label>
-                <input class="hidden file-input" type="file" name="picture" id="picture">
                 <button class="mx-1 bg-sky-600 text-white px-3 py-1 rounded-md">ذخیره</button>
             </form>
         </div>
@@ -56,7 +60,7 @@
                         <tr class="odd:bg-gray-100 border-2 border-gray-300">
                             <td class="border-2 text-center p-2 border-gray-300">{{ $baner->name }}</td>
                             <td class=" flex justify-center items-center text-center p-2"><img class="w-24 h-12"
-                                    src="{{ $baner->picture }}" alt=""></td>
+                                    src="{{url('/')}}/{{ $baner->picture }}" alt=""></td>
                             <td class="border-2 text-center p-2 border-gray-300"><a class="text-blue-500"
                                     href="{{ $baner->link != 'nothing' ? $baner->link : '#' }}">لینک</a></td>
                             <td class=" text-center flex !justify-center !items-center p-2">
