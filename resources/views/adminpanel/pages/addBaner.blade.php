@@ -49,33 +49,31 @@
         </div>
         <div class="my-5 w-full border-t-2 border-green-500 bg-white p-10">
             <table class="w-full border-2 border-gray-300">
-                <thead class="border-2 p-4 border-gray-300">
-                    <th class="border-2 p-4 border-gray-300">درباره تصویر</th>
-                    <th class="border-2 p-4 border-gray-300">تصویر بنر</th>
-                    <th class="border-2 p-4 border-gray-300">لینک تصویر</th>
-                    <th class="border-2 p-4 border-gray-300">عملیات</th>
+                <thead class="border-2 p-1 border-gray-300">
+                    <th class="border-2 p-1 border-gray-300">تصویر بنر</th>
+                    <th class="border-2 p-1 border-gray-300">درباره تصویر</th>
+                    <th class="border-2 p-1 border-gray-300">لینک تصویر</th>
+                    <th class="border-2 p-1 border-gray-300">عملیات</th>
                 </thead>
                 <tbody>
                     @foreach ($baners as $baner)
                         <tr class="odd:bg-gray-100 border-2 border-gray-300">
-                            <td class="border-2 text-center p-2 border-gray-300">{{ $baner->name }}</td>
-                            <td class=" flex justify-center items-center text-center p-2"><img class="w-24 h-12"
-                                    src="{{url('/')}}/{{ $baner->picture }}" alt=""></td>
-                            <td class="border-2 text-center p-2 border-gray-300"><a class="text-blue-500"
+                            <td class=""><img class="w-16 h-16 rounded-full my-2 mx-auto"
+                                src="{{url('/')}}/{{ $baner->picture }}" alt=""></td>
+                            <td class="border-2 text-center p-0 border-gray-300">{{ $baner->name }}</td>
+                 
+                            <td class="border-2 text-center p-0 border-gray-300"><a class="text-blue-500"
                                     href="{{ $baner->link != 'nothing' ? $baner->link : '#' }}">لینک</a></td>
-                            <td class=" text-center flex !justify-center !items-center p-2">
+                            <td >
                                 <form class="hidden deleteBanerForm" method="Post"
                                     action="{{ route('delete.baner', ['id' => $baner->id]) }}">
                                     @method('DELETE')
                                     @csrf
                                 </form>
                                 <button
-                                    class="p-3 mx-1 deleteFormBtn flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500">
+                                    class="p-2 mx-auto deleteFormBtn flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                                <a class="p-3 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
-                                    href=""> <i class="fa fa-edit"></i>
-                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -129,5 +127,21 @@
                 }
             });
         })
+    </script>
+    <script>
+                @if (session('added_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'رکورد با موفقیت ایجاد شد!',
+            });
+        @endif
+        @if (session('deleted_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'رکورد با موفقیت حذف شد!',
+            });
+        @endif
     </script>
 @endsection

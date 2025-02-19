@@ -22,7 +22,7 @@ adminPanel : {
 
     super Admin Page
     main page to show Amar
-    update Option
+    update Option => its going ... => 
     Clean up Database 
     Clean up
 }

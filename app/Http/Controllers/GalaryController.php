@@ -29,7 +29,7 @@ class GalaryController extends Controller
             $data['name'] = $request->$tempRequest;
             $galaryPicture->create($data);
         }
-        return back();
+        return back()->with("added_success" , "ok");
     }
 
     public function delete($id)
@@ -40,6 +40,6 @@ class GalaryController extends Controller
             @unlink($galary->picture);
         }
         $galary->delete();
-        return back();
+        return back()->with("deleted_success","ok");
     }
 }

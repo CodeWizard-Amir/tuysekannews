@@ -24,7 +24,7 @@ class BanerController extends Controller
         }
         $data["link"] = $request->link ? $request->link : "nothing";
         $baner->create($data);
-        return back();
+        return back()->with("added_success", "ok");
     }
     public function delete($id)
     {
@@ -35,6 +35,6 @@ class BanerController extends Controller
             @unlink($img);
         }
         $baner->delete();
-        return back();
+        return back()->with("deleted_success", "ok");
     }
 }

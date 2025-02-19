@@ -18,4 +18,11 @@ class NewsletterController extends Controller
         $newsletter->create($data);
         return response()->json(['message' => "ok"]);
     }
+
+    public function delete($id)
+    {
+        $newsletter = Newsletter::findOrFail($id);
+        $newsletter->delete();
+        return back()->with("deleted_success","ok");
+    }
 }

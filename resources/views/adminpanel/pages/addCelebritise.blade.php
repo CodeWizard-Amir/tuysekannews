@@ -12,8 +12,8 @@
     <section class="p-5">
         <h2 class="rounded-full border-r-2 px-5 py-3 !border-indigo-500">اضافه کردن مشاهیر</h2>
         <div class="my-5 w-full border-t-2 border-red-500 bg-white p-10">
-            <form id="celebrity-form" class="w-full space-y-5 flex flex-wrap justify-between px-10" action="{{ route('create.celebrity') }}" method="POST"
-                enctype="multipart/form-data">
+            <form id="celebrity-form" class="w-full space-y-5 flex flex-wrap justify-between px-10"
+                action="{{ route('create.celebrity') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="w-[48%]">
                     <input name="name" class="w-full shadow-sm rounded-sm px-5 py-3 border border-gray-200" type="text"
@@ -73,7 +73,7 @@
                     @foreach ($celebrities as $celebrity)
                         <tr class="odd:bg-gray-100">
                             <td class="border-2 text-center p-2 border-gray-300">
-                                <img class="w-14 h-14 !mx-auto rounded-full" src="{{ $celebrity->picture }}" alt="">
+                                <img class="w-14 h-14 !mx-auto rounded-full" src="{{url('/')}}/{{ $celebrity->picture }}" alt="">
                             </td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ $celebrity->name }}</td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ $celebrity->job }}</td>
@@ -90,7 +90,8 @@
                                     <i class="fa fa-trash"></i>
                                 </button>
                                 <a class="p-3 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
-                                    href=""> <i class="fa fa-edit"></i>
+                                    href="{{ route('show.update.celebrity', ['id' => $celebrity->id]) }}"> <i
+                                        class="fa fa-edit"></i>
                                 </a>
                             </td>
                         </tr>
@@ -151,5 +152,28 @@
                 }
             });
         })
+    </script>
+    <script>
+        @if (session('updated_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'بروزرسانی با موفقیت انجام شد',
+            });
+        @endif
+        @if (session('added_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'رکورد با موفقیت ایجاد شد!',
+            });
+        @endif
+        @if (session('deleted_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'رکورد با موفقیت حذف شد!',
+            });
+        @endif
     </script>
 @endsection

@@ -36,15 +36,19 @@ Route::get("/Antiquity/{id}/{name}", [ViewHandelerController::class, "Each_work"
 
 Route::post("/login-user", [AuthController::class, "Login_User"])->name("login.user");
 Route::post("/logout-user", [AuthController::class, "Logout_User"])->name("logout.user");
-Route::patch("/update-user", [AuthController::class, "Update_User"])->name("update.user");
+Route::patch("/update-user", [AuthController::class, "Update_User"])->name("update.own.user");
 Route::get("/change-profile", [AuthController::class, "Profile_User"])->name("profile.user");
 
 
 Route::get('login',function(){
     return view('pages.login');
 })->name('login');
+
 Route::get("/addAdmin" , [UserController::class, "show"])->name("show.users");
+Route::get("/updateAdmin/{id}" , [UserController::class, "show_update"])->name("update.show.users");
 Route::post("/saveAdmin" , [UserController::class, "create"])->name("create.user");
+Route::patch("/update-form-admin/{id}" , [UserController::class, "update"])->name("update.user");
+Route::delete("/deleteAdmin/{id}" , [UserController::class, "delete"])->name("delete.user");
 
 Route::post("/saveSupport" , [SupportController::class, "create"])->name( "create.support");
 Route::post("/saveNewsletter" , [NewsletterController::class, "create"])->name( "create.newsletter");
@@ -60,7 +64,9 @@ prefix('adminpanel')
     Route::delete('/deletenews/{id}', [NewsController::class, "delete"])->name("delete.news");
     
     Route::get('/addWorks',[AntiquitiesController::class, "show"])->name("show.works");
+    Route::get('/updateWorks/{id}',[AntiquitiesController::class, "show_update"])->name("update.show.antiquitise");
     Route::post('/saveWorks',[AntiquitiesController::class, "create"])->name("create.antiquitise");
+    Route::patch('/update-form-Works/{id}',[AntiquitiesController::class, "update"])->name("update.antiquitise");
     Route::delete('/deleteWorks/{id}',[AntiquitiesController::class, "delete"])->name("delete.antiquitise");
     
     
@@ -71,6 +77,7 @@ prefix('adminpanel')
 
     // ---------------------------------------------------
     Route::get("/newsletter" , [NewsletterController::class, "show"])->name("show.newsletter");
+    Route::delete("/delete-newsletter/{id}" , [NewsletterController::class, "delete"])->name("delete.newsletter");
     // ----------------------------------------------------
     Route::get("/support" , [SupportController::class, "show"])->name("show.support");
     // --------------------------------------------------------------------------
@@ -84,6 +91,8 @@ prefix('adminpanel')
     
     
     Route::get("/addCelebrity" , [CelebritiesController::class, "show"])->name("show.celebritise");
+    Route::get("/updateCelebrity/{id}" , [CelebritiesController::class, "show_update"])->name("show.update.celebrity");
     Route::post("/saveCelebrity" , [CelebritiesController::class, "create"])->name( "create.celebrity");
+    Route::patch("/update-form-Celebrity/{id}" , [CelebritiesController::class, "update"])->name( "update.celebrity");
     Route::delete("/deleteCelebrity/{id}" , [CelebritiesController::class, "delete"])->name( "delete.celebrity");
 });

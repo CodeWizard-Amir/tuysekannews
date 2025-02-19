@@ -188,4 +188,27 @@
             });
         });
     </script>
+        <script>
+            @if (session('updated_success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'موفقیت‌آمیز!',
+                    text: 'بروزرسانی با موفقیت انجام شد',
+                });
+            @endif
+            @if (session('added_success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'موفقیت‌آمیز!',
+                    text: 'رکورد با موفقیت ایجاد شد!',
+                });
+            @endif
+            @if (session('deleted_success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'موفقیت‌آمیز!',
+                    text: 'رکورد با موفقیت حذف شد!',
+                });
+            @endif
+        </script>
 @endsection

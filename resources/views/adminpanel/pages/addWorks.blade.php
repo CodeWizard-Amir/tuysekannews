@@ -112,7 +112,7 @@
                                     <i class="fa fa-trash"></i>
                                 </button>
                                 <a class="p-2 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
-                                    href=""> <i class="fa fa-edit"></i>
+                                    href="{{route('update.show.antiquitise',['id' => $work->id])}}"> <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                         </tr>
@@ -206,4 +206,27 @@
             });
         })
     </script>
+        <script>
+            @if (session('updated_success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'موفقیت‌آمیز!',
+                    text: 'بروزرسانی با موفقیت انجام شد',
+                });
+            @endif
+            @if (session('added_success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'موفقیت‌آمیز!',
+                    text: 'رکورد با موفقیت ایجاد شد!',
+                });
+            @endif
+            @if (session('deleted_success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'موفقیت‌آمیز!',
+                    text: 'رکورد با موفقیت حذف شد!',
+                });
+            @endif
+        </script>
 @endsection

@@ -69,7 +69,8 @@
                     @foreach ($galary as $item)
                         <tr class="odd:bg-gray-100 border-2 border-gray-200">
                             <td class="border-2 text-center  p-2 border-gray-300"><img
-                                    class="h-14 !mx-auto w-14 rounded-full" src="{{ $item->picture }}"></td>
+                                    class="h-14 !mx-auto w-14 rounded-full" src="{{ url('/') }}/{{ $item->picture }}">
+                            </td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ mb_substr($item->name, 0, 70) }}</td>
                             <td class=" text-center flex justify-center items-center p-5">
                                 <form class="hidden deleteBanerForm" method="Post"
@@ -81,9 +82,6 @@
                                     class="p-3 mx-1 deleteFormBtn flex text-white rounded-md border-2 border-red-300 justify-center items-center bg-red-500">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                                <a class="p-3 mx-1 flex text-white rounded-md border-2 border-purple-300 justify-center items-center bg-purple-500"
-                                    href=""> <i class="fa fa-edit"></i>
-                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -158,7 +156,7 @@
             // ----------------------------------------------
             $(`.name${count}`).rules("add", {
                 required: true,
-                maxlength :255,
+                maxlength: 255,
 
                 messages: {
                     required: "لطفا یک اسم انتخاب کنید",
@@ -167,12 +165,13 @@
             });
             $(`.picture${count}`).rules("add", {
                 required: true,
-                    extension: "jpg|jpeg|png",
-                    maxsize: 1024*1024*5,
+                extension: "jpg|jpeg|png",
+                maxsize: 1024 * 1024 * 5,
                 messages: {
                     required: "تصویر خبر الزامی است",
                     extension: "فرمت های قابل قبول jpg|jpeg|png",
-                    maxsize: "حداکثر سایز تصویر 5 مگابایت",                }
+                    maxsize: "حداکثر سایز تصویر 5 مگابایت",
+                }
             });
             // ----------------------------------------------------------
             $('.file-input').change(function(e) {
@@ -230,5 +229,21 @@
                 $(this).parents(".imgperveiw").addClass("!hidden")
             });
         });
+    </script>
+    <script>
+        @if (session('added_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'رکورد با موفقیت ایجاد شد!',
+            });
+        @endif
+        @if (session('deleted_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'رکورد با موفقیت حذف شد!',
+            });
+        @endif
     </script>
 @endsection

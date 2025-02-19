@@ -16,6 +16,11 @@ class UserController extends Controller
         $admins = User::get();
         return view("adminpanel.pages.addAdmin", compact("admins"));
     }
+    public function show_update($id)
+    {
+        $user = User::findOrFail($id);
+        return view("adminpanel.pages.updateAdmin", compact("user"));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -27,38 +32,21 @@ class UserController extends Controller
         $data["userID"] = Str::random(16);
         $data["status"] = $request->status == null ? 0 : 1;
         $user->create($data);
-        return back();
+        return back()->with("added_success","ok");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $data = $request->all();
+        $user->update($data);
+        return to_route('show.users')->with("updated_success" ,"ok");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function delete($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return back()->with("deleted_success","ok");
     }
 }
