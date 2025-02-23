@@ -26,30 +26,36 @@ class ViewHandelerController extends Controller
     public function Galary()
     {
         $galaryImages = Galary::get();
-        return view("pages.Galary",compact('galaryImages'));
+        return view("pages.Galary", compact('galaryImages'));
     }
     public function Celebritise()
     {
         $celebritise = Celebrities::get();
 
-        return view("pages.Celebritise",compact("celebritise"));
+        return view("pages.Celebritise", compact("celebritise"));
     }
     public function Each_Celebrity($celebrityID)
     {
-        $celebrity = Celebrities::where("celebrityID",$celebrityID)->get()->firstOrFail();
+        $celebrity = Celebrities::where("celebrityID", $celebrityID)->get()->firstOrFail();
         $news = News::inRandomOrder()->get()->take(5);
         $celebritise = Celebrities::get()->except($celebrity->id)->take(5);
-        return view("pages.Each_celebrity",compact("celebrity","news","celebritise"));
+        return view("pages.Each_celebrity", compact("celebrity", "news", "celebritise"));
     }
     public function News()
     {
-        $news = News::get();
-        return view('pages.news',compact("news"));
+        $newses = News::paginate(6);
+        $sliderNewses = News::inRandomOrder()->get()->take(5);
+        $sliderNewsesTop = News::inRandomOrder()->get()->take(5);
+        $sliderNewsesDwon = News::inRandomOrder()->get()->take(5);
+        $latestNews = News::orderBy('created_at', 'desc')->get();
+        $evenIdNews = $latestNews->filter(fn($news) => $news->id % 2 == 0)->take(2);
+        $oddIdNews = $latestNews->filter(fn($news) => $news->id % 2 != 0)->take(4);
+        return view('pages.news', compact("newses","evenIdNews","oddIdNews","sliderNewses","sliderNewsesTop","sliderNewsesDwon"));
     }
     public function Antiquities()
     {
         $works = Antiquities::get();
-        return view('pages.works',compact("works"));
+        return view('pages.works', compact("works"));
     }
 
     public function Each_work($id)
@@ -58,14 +64,12 @@ class ViewHandelerController extends Controller
         $otherWorks = Antiquities::get();
         $news = News::inRandomOrder()->get()->take(5);
         $celebritise = Celebrities::inRandomOrder()->get()->take(5);
-        return view('pages.Each_work',compact('work','news','celebritise','otherWorks'));
+        return view('pages.Each_work', compact('work', 'news', 'celebritise', 'otherWorks'));
     }
 
     public function About()
     {
         $about = About::get()->first();
-        return view('pages.About_US',compact('about'));
+        return view('pages.About_US', compact('about'));
     }
-
-
 }

@@ -1,4 +1,4 @@
-<section class="w-full relative h-[250px] lg:h-[500px] bg-sky-950">
+<section class="w-full relative h-[250px] lg:h-[500px]">
     {{-- -------------------------- --}}
     <div class="swiper baner w-full h-full">
         <div class="swiper-wrapper w-full h-full">

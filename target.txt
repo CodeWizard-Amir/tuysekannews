@@ -9,8 +9,9 @@ jQuery Validator => ohhh look its has finished !
 news && Each_News
 search Form 
 Mobile checking ...
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 SEO Works
-Clean upd
+((((((((((((((((((((((((((((((((((((((((((()))))))))))))))))))))))))))))))))))))))))))
 //================================
 adminPanel : {
     Support => has finished
@@ -19,14 +20,11 @@ adminPanel : {
     Make active route => tommarrow => has finished
     laravel Relations => tommarrow => has finished !
     Admin customise its self => tommarrow => has finished
+    update Option => its going ... => has finished
 
     super Admin Page
     main page to show Amar
-    update Option => its going ... => 
     Clean up Database 
     Clean up
 }
 //========//========//=========//=========//=========//========//=======//=======//=======//=======//======//======//=========//=======//===============
-need to complete({
-    show alert after update or delete 
-})
