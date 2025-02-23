@@ -45,12 +45,21 @@ class ViewHandelerController extends Controller
     {
         $newses = News::paginate(6);
         $sliderNewses = News::inRandomOrder()->get()->take(5);
-        $sliderNewsesTop = News::inRandomOrder()->get()->take(5);
-        $sliderNewsesDwon = News::inRandomOrder()->get()->take(5);
+        $sliderNewsesTop = News::inRandomOrder()->get()->first();
+        $sliderNewsesDwon = News::whereNotIn('id' ,[$sliderNewsesTop?->id])->inRandomOrder()->get()->first();
         $latestNews = News::orderBy('created_at', 'desc')->get();
         $evenIdNews = $latestNews->filter(fn($news) => $news->id % 2 == 0)->take(2);
         $oddIdNews = $latestNews->filter(fn($news) => $news->id % 2 != 0)->take(4);
         return view('pages.news', compact("newses","evenIdNews","oddIdNews","sliderNewses","sliderNewsesTop","sliderNewsesDwon"));
+    }
+
+    public function Each_news($newsID)
+    {
+        $news = News::where('newsID',$newsID)->firstOrFail();
+        $celebritise = Celebrities::get()->take(5);
+
+        $relatedNews = News::whereNotIn('id' , [$news->id])->where('newsCategoryID' , $news->newsCategoryID)->get()->take(8);
+        return view("pages.Each_news", compact('news','relatedNews','celebritise'));
     }
     public function Antiquities()
     {

@@ -21,7 +21,7 @@
                 <ul class="p-5">
                    @foreach ($news as $item)
                         <li class="my-2 flex justify-between items-center py-3">
-                            <a class="text-sm hover:text-orange-800 flex justify-center items-center" href="#">
+                            <a class="text-sm hover:text-orange-800 flex justify-center items-center" href="{{route('websitepages.EachNews',['newsID' => $item?->newsID,'title' => str_replace(' ', '-', $item->title) ])}}">
                                 <i class="mx-2 text-xs text-orange-800	fas fa-caret-left"></i>
                                 {{mb_substr($item?->title,0,35)}}
                             </a>

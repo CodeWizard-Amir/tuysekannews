@@ -30,6 +30,10 @@ Breadcrumbs::for('news', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('اخبار', route('websitepages.News'));
 });
+Breadcrumbs::for('Each_news', function (BreadcrumbTrail $trail, $extra_routeData) {
+    $trail->parent('news');
+    $trail->push(mb_substr($extra_routeData->title,0,25)."...", route('websitepages.EachNews',['newsID'=>$extra_routeData->newsID ,'title'=>$extra_routeData->title]));
+});
 
 Breadcrumbs::for('celebrity', function (BreadcrumbTrail $trail, $extra_routeData) {
     $trail->parent('celebritise');

@@ -61,7 +61,7 @@
             const loadingTimeout = setTimeout(function() {
                 $("#loading").removeClass("hidden")
                 $("#loading").addClass("flex")
-            }, 1000);
+            }, 700);
 
             window.addEventListener("load", function() {
                 clearTimeout(loadingTimeout);

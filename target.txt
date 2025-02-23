@@ -6,7 +6,7 @@ Error pages => tommarrow => has finished!
 Auth&&Login => tommarrow => has finished !
 jQuery Validator => ohhh look its has finished !
 
-news && Each_News
+news && Each_News 
 search Form 
 Mobile checking ...
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
