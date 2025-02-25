@@ -78,7 +78,15 @@
                             <td class="border-2 text-center p-2 border-gray-300">{{ $celebrity->name }}</td>
                             <td class="border-2 text-center p-2 border-gray-300">{{ $celebrity->job }}</td>
 
-                            <td class="border-2 text-center p-2 border-gray-300">{!! mb_substr($celebrity->description, 0, 50) !!}</td>
+                            <td class="border-2 text-center p-2 border-gray-300">
+                                <div id="text-content" class=" hidden">
+                                    {!! $celebrity->description !!}
+                                </div>
+                                <button
+                                    class="bg-pink-500 show-text-message duration-500 text-white hover:bg-pink-800 rounded-sm px-3 py-2">
+                                    نمایش
+                                </button>
+                            </td>
                             <td class=" text-center flex justify-center items-center p-5">
                                 <form class="hidden deleteBanerForm" method="Post"
                                     action="{{ route('delete.celebrity', ['id' => $celebrity->id]) }}">
@@ -103,6 +111,16 @@
     </section>
 @endsection
 @section('scripts')
+<script> 
+    $(".show-text-message").click(function() {
+        let textContent = $("#text-content").text();
+        Swal.fire({
+            icon: "info",
+            text: textContent,
+            draggable: true
+        });
+    })
+</script>
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'), {

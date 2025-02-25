@@ -39,6 +39,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $data = $request->all();
+        $data["status"] = $request->status == null ? 0 : 1;
         $user->update($data);
         return to_route('show.users')->with("updated_success" ,"ok");
     }

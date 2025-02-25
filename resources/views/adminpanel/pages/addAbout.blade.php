@@ -42,5 +42,15 @@
             });
         @endif
     </script>
+    <script>
+        $("#submitBtn").click(() => {
+            let text = $(".ck-content p").text()
+            if (text != "") {
+                $("#about-form").submit()
+            } else {
+                alert("لطفا مقدار درباره تویسرکان رو وارد کنید")
+            }
+        })
+    </script>
 
 @endsection

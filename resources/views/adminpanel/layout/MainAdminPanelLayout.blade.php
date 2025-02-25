@@ -19,8 +19,9 @@
             <div class="relative pt-2 pb-12 bg-indigo-800">
                 <div class="px-5 py-3 flex items-center">
                     <img class="w-12 h-12 rounded-full bg-pink-500"
-                        src="{{url('/')}}/{{auth()->user()?->picture}}" alt="">
-                    <a href="{{route('profile.user')}}" class="text-white hover:text-purple-300 duration-500 mx-3 !ml-2">{{ auth()->user()?->name }}</a>
+                        src="{{ url('/') }}/{{ auth()->user()?->picture }}" alt="">
+                    <a href="{{ route('profile.user') }}"
+                        class="text-white hover:text-purple-300 duration-500 mx-3 !ml-2">{{ auth()->user()?->name }}</a>
                     @auth
                         <button id="log-out-btn" title="خروج"
                             class="text-red-500 hover:text-red-700 duration-500 text-sm flex justify-center items-center">
@@ -76,7 +77,15 @@
                 </li>
                 <li
                     class="{{ request()->routeIs('show.support') ? 'border-r-2 border-green-400 !bg-gray-700' : '' }} bg-gray-800  text-white">
-                    <a class="block p-3 px-5" href="{{ route('show.support') }}">پشتیبانی</a>
+                    <a class="p-3 px-5 flex justify-between items-center " href="{{ route('show.support') }}">پشتیبانی
+                        <div
+                            class="{{ $support_count->count() < 1 ? '!hidden' : null }} w-7 h-7 rounded-sm bg-red-500 flex justify-center items-center">
+                            <b class="pt-1">
+                                {{ $support_count->count() }}
+                            </b>
+                        </div>
+                    </a>
+
                 </li>
             </ul>
         </div>

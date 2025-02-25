@@ -234,6 +234,11 @@
             }
         })
     </script>
+    <script>
+        $("#programer-bio").click(()=>{
+            alert("loplop")
+        })
+    </script>
 </body>
 
 </html>

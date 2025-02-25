@@ -19,6 +19,19 @@
             <div class="[&_>p]:leading-8 [&_>p]:text-justify">
                 {!! $news?->description !!}
             </div>
+            <div class="flex justify-between  my-5 items-center w-fit">
+                <p class="flex mx-2 justify-between items-center">
+                    <span class="fa fa-eye text-sky-500"></span>
+                    <span class="mx-1 text-xs text-gray-900">{{ $news->seen }}</span>
+                </p>
+                <button id="like-btn" class="flex mx-2 justify-between items-center">
+                    {{-- <form action="{{route('Each_news.like',['newsID',$news->newsID])}}" method="POST" class="hidden" enctype="multipart/form-data">
+                        @csrf
+                    </form> --}}
+                    <span class="fa fa-heart text-xl text-red-500"></span>
+                    <span id="like-count" class="mx-1 text-xs text-gray-900">{{ $news->like }}</span>
+                </button>
+            </div>
         </div>
         <div
             class="w-full xl:w-[28%] mt-5 xl:mt-0 xl:justify-start justify-between flex flex-col md:flex-row xl:flex-col h-fit !sticky !top-2 !right-0">
@@ -71,4 +84,12 @@
         </div>
     </section>
     @include('layout.footer')
+@endsection
+@section('scripts')
+    <script>
+        $("#like-btn").click(()=>{
+            $("#line-form").submit();
+            $("#like-count").text(Number($("#like-count").text())+1)
+        })
+    </script>
 @endsection

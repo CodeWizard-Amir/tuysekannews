@@ -21,6 +21,11 @@ Breadcrumbs::for('works', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('آثار تویسرکانی ها', route('websitepages.Antiquities'));
 });
+Breadcrumbs::for('SearchResult', function (BreadcrumbTrail $trail, $extra_routeData) {
+    $trail->parent('home');
+    $trail->push("صفحه جستجو"." / ".$extra_routeData, route('websitepages.search'));
+});
+
 Breadcrumbs::for('galary', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('گالری تصاویر', route('websitepages.Galary'));

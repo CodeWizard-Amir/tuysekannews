@@ -14,7 +14,6 @@
                     @foreach ($newsletter as $item)
                         <tr class="odd:bg-gray-100 border-2 border-gray-300">
                             <td class="border-2 text-center p-2 border-gray-300">{{ $item->email }}</td>
-
                             <td class=" text-center flex justify-center items-center p-2 !h-full">
                                 <form class="hidden deleteNewsletterForm" method="Post"
                                     action="{{ route('delete.newsletter', ['id' => $item->id]) }}">

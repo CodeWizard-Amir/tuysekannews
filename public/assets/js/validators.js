@@ -184,7 +184,7 @@ $(document).ready(function () {
         function (value, element) {
             var category = $("#newsCategoryID").val(); // مقدار select
             var newCategory = $("#newsCategoryName").val(); // مقدار input
-            return category !== 0 || newCategory !== ""; // حداقل یکی پر شده باشد
+            return category != null || newCategory != ""; // حداقل یکی پر شده باشد
         },
         "لطفا یک دسته‌بندی انتخاب کنید یا نام دسته‌بندی جدید را وارد کنید"
     );

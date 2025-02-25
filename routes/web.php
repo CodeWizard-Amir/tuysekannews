@@ -8,6 +8,7 @@ use App\Http\Controllers\CelebritiesController;
 use App\Http\Controllers\GalaryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\SearchCntroller;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewHandelerController;
@@ -31,9 +32,13 @@ Route::get("/News/{newsID}/{title}", [ViewHandelerController::class, "Each_news"
 Route::get("/Antiquities", [ViewHandelerController::class, "Antiquities"])->name("websitepages.Antiquities");
 Route::get("/Celebritise", [ViewHandelerController::class, "Celebritise"])->name("websitepages.Celebritise");
 Route::get("/about-us", [ViewHandelerController::class, "About"])->name("websitepages.About");
-Route::get("/Celebrity/{celebrityID}/{name}", [ViewHandelerController::class, "Each_celebrity"])->name("websitepages.celebrity");
-Route::get("/Antiquity/{id}/{name}", [ViewHandelerController::class, "Each_work"])->name("websitepages.Antiquitiy");
+Route::get("/Celebritise/{celebrityID}/{name}", [ViewHandelerController::class, "Each_celebrity"])->name("websitepages.celebrity");
+Route::get("/Antiquities/{id}/{name}", [ViewHandelerController::class, "Each_work"])->name("websitepages.Antiquitiy");
 
+Route::post("/search", [SearchCntroller::class, "search_form"])->name("websitepages.search");
+Route::get("owner", function(){
+    return view('pages.Owner');
+})->name('owner');
 
 Route::post("/login-user", [AuthController::class, "Login_User"])->name("login.user");
 Route::post("/logout-user", [AuthController::class, "Logout_User"])->name("logout.user");
@@ -52,6 +57,10 @@ Route::patch("/update-form-admin/{id}" , [UserController::class, "update"])->nam
 Route::delete("/deleteAdmin/{id}" , [UserController::class, "delete"])->name("delete.user");
 
 Route::post("/saveSupport" , [SupportController::class, "create"])->name( "create.support");
+Route::patch("/updateSupport/{id}" , [SupportController::class, "update"])->name( "update.support");
+Route::delete("/deleteSupport/{id}" ,  [SupportController::class, "delete"])->name( "delete.support");
+
+
 Route::post("/saveNewsletter" , [NewsletterController::class, "create"])->name( "create.newsletter");
 Route::
 middleware('check.admin')->

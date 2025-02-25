@@ -28,3 +28,20 @@ adminPanel : {
     Clean up
 }
 //========//========//=========//=========//=========//========//=======//=======//=======//=======//======//======//=========//=======//===============
+
+problems {{
+    add admin => has no problem;
+    newletter => has no problem;
+    baner => has no problem;
+    add celebrity => has no problem;
+    galary => has no problem;
+
+    add news => {
+        update option;
+        alerts;
+    }
+    suport => {
+        delete option;
+        alerts;
+    }
+}}

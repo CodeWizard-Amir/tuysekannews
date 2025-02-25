@@ -3,8 +3,9 @@
         <button id="hide-mobile-menu"><i class="fa fa-close text-red-500 text-xl"></i></button>
     </div>
     <div class="w-full p-5 my-2">
-        <form class="bg-white w-full flex justify-between items-center rounded-full" action="">
-            <input class="rounded-full w-[88%] bg-transparent outline-none py-4 px-5 text-sm" type="text" placeholder="چیزی تایپ کنید ...">
+        <form method="POST" action="{{route('websitepages.search')}}" class="bg-white w-full flex justify-between items-center rounded-full">
+            @csrf
+            <input class="rounded-full w-[88%] bg-transparent outline-none py-4 px-5 text-sm" type="text" name="q" placeholder="چیزی تایپ کنید ...">
             <button class="border-none w-[10%] ml-2 bg-transparent text-lg flex justify-center items-start"><i class="fa mt-1 fa-search"></i></button>
         </form>
     </div>

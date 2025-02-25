@@ -36,7 +36,7 @@ class ViewHandelerController extends Controller
     }
     public function Each_Celebrity($celebrityID)
     {
-        $celebrity = Celebrities::where("celebrityID", $celebrityID)->get()->firstOrFail();
+        $celebrity = Celebrities::where("celebrityID", $celebrityID)->firstOrFail();
         $news = News::inRandomOrder()->get()->take(5);
         $celebritise = Celebrities::get()->except($celebrity->id)->take(5);
         return view("pages.Each_celebrity", compact("celebrity", "news", "celebritise"));
@@ -56,8 +56,9 @@ class ViewHandelerController extends Controller
     public function Each_news($newsID)
     {
         $news = News::where('newsID',$newsID)->firstOrFail();
+        $news->increment('seen'); // افزایش view_count
+        $news->save();
         $celebritise = Celebrities::get()->take(5);
-
         $relatedNews = News::whereNotIn('id' , [$news->id])->where('newsCategoryID' , $news->newsCategoryID)->get()->take(8);
         return view("pages.Each_news", compact('news','relatedNews','celebritise'));
     }

@@ -33,33 +33,33 @@
             </div>
             <div class="w-full my-5 xl:my-0 xl:w-[33%] flex flex-row xl:flex-col justify-between h-[500px]">
                 <div class="w-[49%] xl:w-full h-[330px] xl:h-[49%]">
-                    <a href="{{ route('websitepages.EachNews', ['newsID' => $sliderNewsesTop?->newsID, 'title' => $sliderNewsesTop->title]) }}"
+                    <a href="{{ $sliderNewsesTop && route('websitepages.EachNews', ['newsID' => $sliderNewsesTop?->newsID, 'title' => $sliderNewsesTop?->title]) }}"
                         class="swiper-slide bg-black w-full h-full relative">
                         <strong class="absolute top-0 py-3 px-5 rounded-bl-full bg-red-500 text-white z-10">اخبار داغ
                         </strong>
                         <strong class="absolute bottom-0 rounded-tr-full left-0 py-3 px-8 bg-amber-700 text-white z-10">
-                            {{ $sliderNewsesTop->N_category()->first()->name }} </strong>
+                            {{ $sliderNewsesTop?->N_category()->first()->name }} </strong>
                         <div
                             class="absolute hover:bg-opacity-50 w-full flex justify-center items-center h-full bg-black bg-opacity-70">
-                            <h2 class="text-white px-4 py-3 border-r-2 border-red-500">{{ $sliderNewsesTop->title }}</h2>
+                            <h2 class="text-white px-4 py-3 border-r-2 border-red-500">{{ $sliderNewsesTop?->title }}</h2>
                         </div>
-                        <img class="w-full h-full" src="{{ url('/') }}/{{ $sliderNewsesTop->picture }}"
-                            alt="{{ $sliderNewsesTop->title }}" />
+                        <img class="w-full h-full" src="{{ url('/') }}/{{ $sliderNewsesTop?->picture }}"
+                            alt="{{ $sliderNewsesTop?->title }}" />
                     </a>
                 </div>
                 <div class="w-[49%] xl:w-full h-[330px] xl:h-[49%]">
-                    <a href="{{ route('websitepages.EachNews', ['newsID' => $sliderNewsesDwon?->newsID, 'title' => str_replace(' ', '-', $sliderNewsesDwon->title)]) }}"
+                    <a href="{{$sliderNewsesDwon && route('websitepages.EachNews', ['newsID' => $sliderNewsesDwon?->newsID, 'title' => str_replace(' ', '-', $sliderNewsesDwon?->title)]) }}"
                         class="swiper-slide bg-black w-full h-full relative">
                         <strong class="absolute top-0 py-3 px-5 rounded-bl-full bg-red-500 text-white z-10">اخبار داغ
                         </strong>
                         <strong class="absolute bottom-0 rounded-tr-full left-0 py-3 px-8 bg-amber-700 text-white z-10">
-                            {{ $sliderNewsesDwon->N_category()->first()->name }} </strong>
+                            {{ $sliderNewsesDwon?->N_category()->first()->name }} </strong>
                         <div
                             class="absolute hover:bg-opacity-50 w-full flex justify-center items-center h-full bg-black bg-opacity-70">
-                            <h2 class="text-white px-4 py-3 border-r-2 border-red-500">{{ $sliderNewsesDwon->title }}</h2>
+                            <h2 class="text-white px-4 py-3 border-r-2 border-red-500">{{ $sliderNewsesDwon?->title }}</h2>
                         </div>
-                        <img class="w-full h-full" src="{{ url('/') }}/{{ $sliderNewsesDwon->picture }}"
-                            alt="{{ $sliderNewsesDwon->title }}" />
+                        <img class="w-full h-full" src="{{ url('/') }}/{{ $sliderNewsesDwon?->picture }}"
+                            alt="{{ $sliderNewsesDwon?->title }}" />
                     </a>
                 </div>
             </div>

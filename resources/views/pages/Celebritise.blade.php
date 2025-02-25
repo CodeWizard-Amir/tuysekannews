@@ -19,12 +19,12 @@
             </div>
         </div>
         <div id="not-founded-celebrity-alert" class="my-5 hidden w-full mx-auto">
-        <p class="bg-yellow-50 border-r-2  border-yellow-500 text-yellow-600 p-3 xl:p-5 w-full">هیچ فردی یافت نشد!</p>
-    </div>
+            <p class="bg-yellow-50 border-r-2  border-yellow-500 text-yellow-600 p-3 xl:p-5 w-full">هیچ فردی یافت نشد!</p>
+        </div>
         <div class="flex my-5 flex-wrap justify-between">
             @foreach ($celebritise as $item)
                 <a celebrity-name="{{ $item->name }}"
-                    href="Celebrity/{{ $item->celebrityID }}/{{ str_replace(' ', '-', $item->name) }}"
+                    href=" {{ route('websitepages.celebrity', ['celebrityID' => $item->celebrityID, 'name' => str_replace(' ', '-', $item->name)]) }}"
                     class="w-full eachCelebrity overflow-hidden pb-5 border my-2 rounded-md md:w-[48%] lg:w-[32%] border-gray-200 shadow-sm h-[400px]">
                     <img class="w-full rounded-t-md h-[60%]" src="{{ url('/') }}/{{ $item->picture }}"
                         alt="{{ $item->name }}">
@@ -56,12 +56,9 @@
                     $(this).show()
                 }
             })
-            if(countOfCelebrity > 0)
-            {
+            if (countOfCelebrity > 0) {
                 $("#not-founded-celebrity-alert").addClass("hidden")
-            }
-            else
-            {
+            } else {
                 $("#not-founded-celebrity-alert").removeClass("hidden")
 
             }
