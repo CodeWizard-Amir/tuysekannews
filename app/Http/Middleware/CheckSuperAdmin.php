@@ -15,6 +15,10 @@ class CheckSuperAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!auth()->check() || auth()->user()?->role != "super_admin")
+        {
+            abort(403);
+        }
         return $next($request);
     }
 }

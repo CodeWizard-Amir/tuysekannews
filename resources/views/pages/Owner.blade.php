@@ -1,32 +1,30 @@
 @extends('layout.mainlayout')
 @section('body')
     @include('components.mobile-menu')
+@section('styles')
+    {!! SEO::generate() !!}
+@endsection
+@include('layout.header')
+{{-- @include('components.website-path',["breadcrumbs_name"=> "galary","heading_content"=>"گالری تصاویر"]) --}}
 
-    @include('layout.header')
-    {{-- @include('components.website-path',["breadcrumbs_name"=> "galary","heading_content"=>"گالری تصاویر"]) --}}
-
-    <section class="p-5 my-10 flex justify-between items-center mx-auto w-3/4">
-        <div class="">
-            <h1 class="text-xl font-bold">استاد مهدی کریمی</h1>
-            <div class="[&_p]:text-lg my-5 [&_p]:leading-9 p-10 [&_p]:text-justify">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, blanditiis laudantium velit magni
-                    eligendi eveniet incidunt earum ea maxime consequatur doloremque a quam rerum suscipit dolorum, totam
-                    eligendi eveniet incidunt earum ea maxime consequatur doloremque a quam rerum suscipit dolorum, totam
-                    porro non odit!</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, blanditiis laudantium velit magni
-                    eligendi eveniet incidunt earum ea maxime consequatur doloremque a quam rerum suscipit dolorum, totam
-                    eligendi eveniet incidunt earum ea maxime consequatur doloremque a quam rerum suscipit dolorum, totam
-                    eligendi eveniet incidunt earum ea maxime consequatur doloremque a quam rerum suscipit dolorum, totam
-                    porro non odit!</p>
-            </div>
+<section class="p-5 my-10 flex justify-between items-center mx-auto w-full xl:w-3/4">
+    <div class="">
+        <h1 class="text-xl font-bold">استاد محمود صلواتی </h1>
+        <div class="[&_p]:text-lg my-5 [&_p]:leading-9 p-4 xl:p-10 [&_p]:text-justify">
+            <p>با سلام و عرض ادب
+                بنده، محمود صلواتی، متولد ١٣٣٧ خورشیدی، متولد و ساکن تویسرکان هستم.
+                در سال ١٣٧٢ کارشناسی ارشد در رشته زبان و ادبیات فارسی را تمام کردم و پایان نامه ام با عنوان «غم غربت در
+                شعر دوره ی صفویه» چاپ شده است.
+                زمینه های پژوهشی اینجانب ادبیات فارسی، فرهنگ عامه تویسرکان و قرآن پژوهی است.
+                تمام مقاطع تحصیلی را از ابتدایی تا دانشگاه معلمی کرده ام.
+                تا کنون دو کتاب، پانزده طرح پژوهشی دانشگاهی و چهل مقاله ی عمومی، علمی_ پژوهشی نوشته ام که بسیاری از آن
+                ها در پایگاه های علمی پژوهشی موجود است.
+                عاشق کهن شهر تویسرکان و جاذبه های فرهنگی، تاریخی و طبیعی آن هستم.
+                خوشا تویسرکان و فصل بهار
+                که شوید ز آیینه ی دل غبار...
+                شادکام باشید</p>
         </div>
-        <div class="flex justify-center items-center flex-col">
-            <img class="w-[350px] h-[350px] rounded-full bg-pink-800" src="" alt="">
-            <div class="my-5 flex justify-center items-center">
-                <div class="w-10 mx-2 h-10 rounded-full bg-yellow-300"></div>
-                <div class="w-10 mx-2 h-10 rounded-full bg-yellow-300"></div>
-            </div>
-        </div>
-    </section>
-    @include('layout.footer')
+    </div>
+</section>
+@include('layout.footer')
 @endsection

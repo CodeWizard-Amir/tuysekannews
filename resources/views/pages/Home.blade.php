@@ -1,5 +1,7 @@
 @extends('layout.Mainlayout')
-@section('title', 'تویسرکان | صفحه اصلی')
+@section('styles')
+{!! SEO::generate() !!}
+@endsection
 @section('body')
     @include('components.mobile-menu')
 

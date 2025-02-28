@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /adminpanel
+Disallow: /login
+Allow: /
+Sitemap: http://example.com/sitemap.xml

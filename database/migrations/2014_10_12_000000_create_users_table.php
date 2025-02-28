@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('password');
             $table->string('status')->default(0);
+            $table->string('role')->default('admin');
             $table->string('picture')->default('assets/img/userImagePlaceholder.png');
             $table->rememberToken();
             $table->timestamps();

@@ -1,5 +1,7 @@
 @extends('layout.mainlayout')
-@section('title', 'تویسرکان | آخرین اخبار ')
+@section('styles')
+    {!! SEO::generate() !!}
+@endsection
 
 @section('body')
     @include('components.mobile-menu')
@@ -33,7 +35,7 @@
             </div>
             <div class="w-full my-5 xl:my-0 xl:w-[33%] flex flex-row xl:flex-col justify-between h-[500px]">
                 <div class="w-[49%] xl:w-full h-[330px] xl:h-[49%]">
-                    <a href="{{ $sliderNewsesTop && route('websitepages.EachNews', ['newsID' => $sliderNewsesTop?->newsID, 'title' => $sliderNewsesTop?->title]) }}"
+                    <a href="{{ $sliderNewsesTop ? route('websitepages.EachNews', ['newsID' => $sliderNewsesTop?->newsID, 'title' => $sliderNewsesTop?->title]):null }}"
                         class="swiper-slide bg-black w-full h-full relative">
                         <strong class="absolute top-0 py-3 px-5 rounded-bl-full bg-red-500 text-white z-10">اخبار داغ
                         </strong>
@@ -48,7 +50,7 @@
                     </a>
                 </div>
                 <div class="w-[49%] xl:w-full h-[330px] xl:h-[49%]">
-                    <a href="{{$sliderNewsesDwon && route('websitepages.EachNews', ['newsID' => $sliderNewsesDwon?->newsID, 'title' => str_replace(' ', '-', $sliderNewsesDwon?->title)]) }}"
+                    <a href="{{$sliderNewsesDwon ? route('websitepages.EachNews', ['newsID' => $sliderNewsesDwon?->newsID, 'title' => str_replace(' ', '-', $sliderNewsesDwon?->title)]):null  }}"
                         class="swiper-slide bg-black w-full h-full relative">
                         <strong class="absolute top-0 py-3 px-5 rounded-bl-full bg-red-500 text-white z-10">اخبار داغ
                         </strong>

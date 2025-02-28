@@ -32,7 +32,12 @@ $(document).ready(function () {
             },
         },
         submitHandler: function (form) {
-            form.submit();
+            let text = $(".ck-content p").text()
+            if (text != "") {
+                form.submit();
+            } else {
+                alert("لطفا مقدار درباره تویسرکان رو وارد کنید")
+            }
         },
     });
     // End Celebrity Form Validator
@@ -131,7 +136,7 @@ $(document).ready(function () {
         function (value, element) {
             var category = $("#categoryID").val(); // مقدار select
             var newCategory = $("#categoryName").val(); // مقدار input
-            return category != 0 || newCategory !== ""; // حداقل یکی پر شده باشد
+            return category != null || newCategory !== ""; // حداقل یکی پر شده باشد
         },
         "لطفا یک دسته‌بندی انتخاب کنید یا نام دسته‌بندی جدید را وارد کنید"
     );
@@ -173,7 +178,13 @@ $(document).ready(function () {
             },
         },
         submitHandler: function (form) {
-            form.submit();
+            let text = $(".ck-content p").text()
+            if (text != "") {
+                form.submit();
+            } else {
+                alert("لطفا مقدار درباره تویسرکان رو وارد کنید")
+            }
+
         },
     });
     //End Works Form Validator
@@ -226,7 +237,12 @@ $(document).ready(function () {
             },
         },
         submitHandler: function (form) {
-            form.submit();
+            let text = $(".ck-content p").text()
+            if (text != "") {
+                form.submit();
+            } else {
+                alert("لطفا مقدار درباره تویسرکان رو وارد کنید")
+            }
         },
     });
     //End News Form Validator

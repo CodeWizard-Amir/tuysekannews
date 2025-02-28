@@ -5,9 +5,9 @@ hide Menu => has finished!
 Error pages => tommarrow => has finished!
 Auth&&Login => tommarrow => has finished !
 jQuery Validator => ohhh look its has finished !
+news && Each_News => has finished
+search Form =>has finished
 
-news && Each_News 
-search Form 
 Mobile checking ...
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 SEO Works
@@ -21,8 +21,8 @@ adminPanel : {
     laravel Relations => tommarrow => has finished !
     Admin customise its self => tommarrow => has finished
     update Option => its going ... => has finished
+    super Admin Page => has finished
 
-    super Admin Page
     main page to show Amar
     Clean up Database 
     Clean up
@@ -33,15 +33,10 @@ problems {{
     add admin => has no problem;
     newletter => has no problem;
     baner => has no problem;
+    work => has no problem
     add celebrity => has no problem;
     galary => has no problem;
-
-    add news => {
-        update option;
-        alerts;
-    }
-    suport => {
-        delete option;
-        alerts;
-    }
+    news   => has no problem
+    suport => has no problem
+    about-us => has no problem
 }}

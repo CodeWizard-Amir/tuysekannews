@@ -137,7 +137,7 @@
         })
     </script>
     <script>
-        $.validator.addMethod("categoryIDOrcategoryName", function(value, element) {
+        $.validator.addMethod("categoryIDOrcategoryNameUpdate", function(value, element) {
             var category = $("#categoryID").val(); // مقدار select
             var newCategory = $("#categoryName").val(); // مقدار input
             return category != 0 || newCategory !== ""; // حداقل یکی پر شده باشد
@@ -149,10 +149,10 @@
                     maxlength: 255,
                 },
                 categoryID: {
-                    categoryIDOrcategoryName: true,
+                    categoryIDOrcategoryNameUpdate: true,
                 },
                 categoryName: {
-                    categoryIDOrcategoryName: true,
+                    categoryIDOrcategoryNameUpdate: true,
                     maxlength: 255,
                 },
             },
@@ -162,10 +162,10 @@
                     maxlength: "حداکثر 255 کاراکتر",
                 },
                 categoryID: {
-                    categoryIDOrcategoryName: "دسته بندی اثر الزامی است",
+                    categoryIDOrcategoryNameUpdate: "دسته بندی اثر الزامی است",
                 },
                 categoryName: {
-                    categoryIDOrcategoryName: "نام دسته بندی الزامی است",
+                    categoryIDOrcategoryNameUpdate: "نام دسته بندی الزامی است",
                     maxlength: "حداکثر 255 کاراکتر",
                 },
             },

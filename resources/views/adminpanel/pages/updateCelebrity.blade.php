@@ -120,7 +120,6 @@
                 $(".imgperveiw").addClass("!hidden")
             }
             $('#deletePictureBtn').click(function() {
-                alert("koko")
                 $('.file-input').val('');
                 $(".lableInput").removeClass("!hidden")
                 $(".imgperveiw").addClass("!hidden")

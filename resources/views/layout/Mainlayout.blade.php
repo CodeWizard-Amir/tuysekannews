@@ -39,7 +39,6 @@
         }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>@yield('title')</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 

@@ -1,5 +1,7 @@
 @extends('layout.mainlayout')
-@section('title', 'تویسرکان | مشاهیر ')
+@section('styles')
+    {!! SEO::generate() !!}
+@endsection
 
 @section('body')
     @include('components.mobile-menu')

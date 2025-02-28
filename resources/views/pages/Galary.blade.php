@@ -1,37 +1,40 @@
 @extends('layout.mainlayout')
-@section('title', "تویسرکان | گالری تصاویر ")
 
 @section('styles')
+    {!! SEO::generate() !!}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css">
 @endsection
 @section('body')
-@include('components.mobile-menu')
+    @include('components.mobile-menu')
 
     @include('layout.header')
-    @include('components.website-path',["breadcrumbs_name"=> "galary","heading_content"=>"گالری تصاویر"])
+    @include('components.website-path', [
+        'breadcrumbs_name' => 'galary',
+        'heading_content' => 'گالری تصاویر',
+    ])
     <div class="my-gallery flex justify-between flex-wrap w-full !p-3 xl:w-3/4 mx-auto my-5" itemscope
         itemtype="http://schema.org/ImageGallery">
-        @foreach ($galaryImages as $key =>$item)
-        @if ($key % 3 == 0)
-        <figure class="!w-full p-1 h-[250px] lg:h-[400px]" itemprop="associatedMedia" itemscope
-            itemtype="http://schema.org/ImageObject">
-            <a href="{{ url('/') }}/{{$item?->picture}}" itemprop="contentUrl" data-size="1200x800">
-                <img class="w-full h-full" src="{{ url('/') }}/{{$item?->picture}}" itemprop="thumbnail"
-                    alt="{{$item?->name}}" />
-            </a>
-        </figure>
-    @else
-        <figure class="!w-[50%] p-1 h-[200px] lg:h-[400px]" itemprop="associatedMedia" itemscope
-            itemtype="http://schema.org/ImageObject">
-            <a href="{{ url('/') }}/{{$item->picture}}" itemprop="contentUrl" data-size="1200x800">
-                <img class="w-full h-full" src="{{ url('/') }}/{{$item->picture}}" itemprop="thumbnail"
-                    alt="تصویر 1" />
-            </a>
-        </figure>
-    @endif
+        @foreach ($galaryImages as $key => $item)
+            @if ($key % 3 == 0)
+                <figure class="!w-full p-1 h-[250px] lg:h-[400px]" itemprop="associatedMedia" itemscope
+                    itemtype="http://schema.org/ImageObject">
+                    <a href="{{ url('/') }}/{{ $item?->picture }}" itemprop="contentUrl" data-size="1200x800">
+                        <img class="w-full h-full" src="{{ url('/') }}/{{ $item?->picture }}" itemprop="thumbnail"
+                            alt="{{ $item?->name }}" />
+                    </a>
+                </figure>
+            @else
+                <figure class="!w-[50%] p-1 h-[200px] lg:h-[400px]" itemprop="associatedMedia" itemscope
+                    itemtype="http://schema.org/ImageObject">
+                    <a href="{{ url('/') }}/{{ $item->picture }}" itemprop="contentUrl" data-size="1200x800">
+                        <img class="w-full h-full" src="{{ url('/') }}/{{ $item->picture }}" itemprop="thumbnail"
+                            alt="تصویر 1" />
+                    </a>
+                </figure>
+            @endif
         @endforeach
-  
+
     </div>
 
 

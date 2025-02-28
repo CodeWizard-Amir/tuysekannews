@@ -17,6 +17,8 @@ class NewsController extends Controller
         $newsCategory = newsCategory::get();
         return view("adminpanel.pages.addNews",compact("newses","newsCategory"));
     }
+
+
     public function create(Request $request)
     {
         $news = new News;
@@ -38,9 +40,21 @@ class NewsController extends Controller
             $data['newsCategoryID'] = $catId;
         }
         $news->create($data);
-        return back();
+        return back()->with('added_success',"its created!");
     }
+    public function show_update($id){
+        $news = News::findOrFail($id);
+        $newsCategory = newsCategory::get();
 
+        return view('adminpanel.pages.updateNews',compact('news','newsCategory'));
+    }
+    public function update($id,Request $request)
+    {
+        $news = News::findOrFail($id);
+        $data = $request->all();
+        $news->update($data);
+        return to_route('show.news')->with('updated_success',"its updated!");
+    }
     public function delete($id)
     {
         $news = News::find($id);
@@ -49,6 +63,6 @@ class NewsController extends Controller
             @unlink($news->picture);
         }
         $news->delete();
-        return back();
+        return back()->with('deleted_success',"its deleted!");
     }
 }

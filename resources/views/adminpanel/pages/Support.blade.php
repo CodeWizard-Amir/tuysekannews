@@ -171,4 +171,13 @@
             });
         })
     </script>
+    <script>
+        @if (session('deleted_success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'موفقیت‌آمیز!',
+                text: 'رکورد با موفقیت حذف شد!',
+            });
+        @endif
+    </script>
 @endsection
