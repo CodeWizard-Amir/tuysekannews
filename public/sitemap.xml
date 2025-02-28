@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://localhost:8000</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/Galary</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/News</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/Antiquities</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/Celebritise</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/about-us</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/owner</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/adminpanel</loc>
+        <lastmod>2025-02-27T17:11:27+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/News/2/سیلبلثقغ</loc>
+        <lastmod>2025-02-26T13:03:37+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/News/3/ترامپ-چه-گفت</loc>
+        <lastmod>2025-02-27T16:51:50+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/Antiquities/2/123456</loc>
+        <lastmod>2025-02-26T13:29:59+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:8000/Antiquities/3/امیرسجاد-نوری</loc>
+        <lastmod>2025-02-27T17:11:24+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>
